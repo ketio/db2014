@@ -27,10 +27,10 @@
 		font-weight: bold;
 	}
 	#login_interface{
-		padding-top: 100px;
+		padding-top: 40px;
 		padding-right: 80px;
 		width: 500px;
-		height: 300px;
+		height: 450px;
 		border-right-style: dashed;
 		border-right-width: 2px;
 	}
@@ -54,9 +54,11 @@
 	.text_css{
 		font-family: Arial, Tahoma, 微軟正黑體;
 		text-align: right;
-		line-height: 200%;
+		line-height: 300%;
 	}
+
 	</style>
+
 
 	<body>
 		<div id="content_wrapper">
@@ -65,11 +67,11 @@
 				include_once "header.php"; 
 			?>	
 			<div id="login_page" >
-				<div style="height: 100px;">
+				<div style="height: 50px;">
 				</div>
 				<div id="login_interface">
 					<div id="signIn_text">
-						&nbsp&nbsp SIGN IN
+						&nbsp&nbsp REGISTER
 					</div>
 					<div class="text_css">
 						ACCOUNT | 會員帳號
@@ -77,12 +79,27 @@
 						</input>
 					</div>
 					<div class="text_css">
-						PASSWORD | 會員密碼
+						PASSWORD | 登入密碼
+						<input>
+						</input>
+					</div>
+					<div class="text_css">
+						USERNAME | 會員名稱
+						<input>
+						</input>
+					</div>
+					<div class="text_css">
+						GENDER | 性別
+						<input>
+						</input>
+					</div>
+					<div class="text_css">
+						BIRTHDAY | 生日
 						<input>
 						</input>
 					</div>
 					<div id="login_text">
-						登入
+						確認申請
 					</div>
 				</div>
 				
