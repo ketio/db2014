@@ -1,7 +1,7 @@
 <html>
 <head>
-<script src="./jquery-1.11.2.min.js"></script>
-<script src="./jquery.form.min.js"></script>
+<script src="./js/jquery-1.11.2.min.js"></script>
+<script src="./js/jquery.form.min.js"></script>
 
 </head>
 <style>
@@ -10,6 +10,11 @@
 }
 .video_list_table_cell{
 	border:1px solid black;
+}
+.video_list_table_cell div{
+	height:80px;
+	width:200px;
+	overflow:auto;
 	
 }
 .video_picture{
@@ -56,6 +61,7 @@ $(document).ready(function(){
 					publishDate:publishDate,
 					publisher:$("#publisher").val(),
 					lang:$("#lang option:selected").html(),
+					intro:$("#intro").val(),
 					mode:"new"
 				},
 				success: function(response){
@@ -143,6 +149,7 @@ function get_list(){
 				"<td class='video_list_table_cell'>上市日期</td>"+
 				"<td class='video_list_table_cell'>發行公司</td>"+
 				"<td class='video_list_table_cell'>影片語言</td>"+
+				"<td class='video_list_table_cell'>簡介</td>"+
 				"<td class='video_list_table_cell'>上傳圖片</td>"+	
 				"<td class='video_list_table_cell'>刪除</td>"+				
 			"</tr>"+
@@ -168,7 +175,8 @@ function get_list(){
 					buyPrice:$(this).children("buyPrice").text(),
 					publishDate:$(this).children("publishDate").text(),
 					publisher:$(this).children("publisher").text(),
-					lang:$(this).children("lang").text()
+					lang:$(this).children("lang").text(),
+					intro:$(this).children("intro").text()
 				}
 				
 				$("#video_list_table").append(
@@ -184,6 +192,11 @@ function get_list(){
 						"<td class='video_list_table_cell'>"+video.publisher +"</td>"+
 						"<td class='video_list_table_cell'>"+video.lang +"</td>"+	
 						"<td class='video_list_table_cell'>"+
+							"<div>"+
+								video.intro+
+							"</div>"+
+						"</td>"+	
+						"<td class='video_list_table_cell'>"+
 							"<form id='upload"+video.videoID+"' action='action.php' method='post' enctype='multipart/form-data'>"+
 								"<input class='fileupload' videoId='"+video.videoID+"' type='file' name='mypic'> "+
 							"</form>"+
@@ -192,14 +205,7 @@ function get_list(){
 							"<input class='video_delete_button' type='button' value='刪除'>"+
 						"</td>"+
 					"</tr>"
-				);
-				
-			 	
-//<div class="btn"> 
-//     <input id="fileupload" type="file" name="mypic"> 
-//</div> 
-//<div id="showimg"></div> 
-				
+				);				
 			});
 			
 			
@@ -320,7 +326,13 @@ function delete_video(videoID){
 						<option value="11">其他</option>
 					</select>
 				</td>
-			</tr>				
+			</tr>		
+			<tr>
+				<td>簡介</td>
+				<td>
+					<textarea name="intro" id="intro" cols="40" rows="6"></textarea>
+				</td>
+			</tr>
 			<tr>
 				<td>
 					<input id="submit_button" type="button" value="送出">

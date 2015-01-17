@@ -16,17 +16,19 @@
 	if(isset($_POST["publisher"]))	
 		$publisher=$_POST["publisher"];	
 	if(isset($_POST["lang"]))	
-		$lang=$_POST["lang"];			
+		$lang=$_POST["lang"];		
+	if(isset($_POST["intro"]))	
+		$intro=$_POST["intro"];				
 		
 	$mysqli=connect_database();
 	
 	if($mode=="new"){		
 		$videoID=get_id("video","video","videoID",$mysqli);
-		$query="insert into video(videoID,videoName,videoType,rentPrice,buyPrice,publishDate,publisher,lang) values (?,?,?,?,?,?,?,?)";
+		$query="insert into video(videoID,videoName,videoType,rentPrice,buyPrice,publishDate,publisher,lang,intro) values (?,?,?,?,?,?,?,?,?)";
 		$stmt = mysqli_prepare($mysqli, $query);
 
 		/* bind parameters for markers */
-		mysqli_stmt_bind_param($stmt, "ssssssss",$videoID,$videoName,$videoType,$rentPrice,$buyPrice,$publishDate,$publisher,$lang);
+		mysqli_stmt_bind_param($stmt, "sssssssss",$videoID,$videoName,$videoType,$rentPrice,$buyPrice,$publishDate,$publisher,$lang,$intro);
 
 		mysqli_stmt_execute($stmt);
 		mysqli_stmt_close($stmt);
@@ -42,7 +44,7 @@
 		$result=array();
 		$query=
 			"select ".
-				"A.videoID,A.videoName,C.videoTypeName,C.videoTypeMode,A.rentPrice,A.buyPrice,A.publishDate,B.publisherName,B.publisherCountry,A.lang ".
+				"A.videoID,A.videoName,C.videoTypeName,C.videoTypeMode,A.rentPrice,A.buyPrice,A.publishDate,B.publisherName,B.publisherCountry,A.lang,A.intro ".
 			"from ".
 				"video as A, ".
 				"publisher as B, ".
@@ -53,7 +55,7 @@
 
 		/* bind parameters for markers */
 		//mysqli_stmt_bind_param($stmt, "sss",$videoID,$videoName,$videoType);
-		mysqli_stmt_bind_result($stmt,$videoID,$videoName,$videoTypeName,$videoTypeMode,$rentPrice,$buyPrice,$publishDate,$publisherName,$publisherCountry,$lang);
+		mysqli_stmt_bind_result($stmt,$videoID,$videoName,$videoTypeName,$videoTypeMode,$rentPrice,$buyPrice,$publishDate,$publisherName,$publisherCountry,$lang,$intro);
 		mysqli_stmt_execute($stmt);
 		while(mysqli_stmt_fetch($stmt)){
 			$temp = array();
@@ -65,6 +67,7 @@
 			$temp["publishDate"]=$publishDate;
 			$temp["publisher"]=$publisherName."/".$publisherCountry;
 			$temp["lang"]=$lang;
+			$temp["intro"]=$intro;
 			array_push($result,$temp);
 		}
 		mysqli_stmt_close($stmt);
@@ -99,7 +102,10 @@
 						echo "</publisher>";
 						echo "<lang>";
 							echo $video["lang"];
-						echo "</lang>";						
+						echo "</lang>";		
+						echo "<intro>";
+							echo $video["intro"];
+						echo "</intro>";							
 					echo "</video>";
 				}
 			echo "</videos>";				
