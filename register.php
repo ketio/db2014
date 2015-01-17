@@ -28,11 +28,13 @@
 	}
 	#login_interface{
 		padding-top: 40px;
-		padding-right: 80px;
+		padding-left: 80px;
 		width: 500px;
 		height: 450px;
-		border-right-style: dashed;
-		border-right-width: 2px;
+		border-left-style: dashed;
+		border-left-width: 2px;
+		margin-left: auto;
+		margin-right: 70px;
 	}
 	#login_page{
 		background:white;
