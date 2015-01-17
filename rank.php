@@ -21,6 +21,8 @@
 				include_once "header.php"; 
 			?>	
 			<div id="rank_page">
+			
+			
 			</div>
 			<?php 
 				//include_once "footer	.php"; 

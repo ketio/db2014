@@ -29,11 +29,11 @@ $(document).ready(function(){
 
 	</div>
 	<div id="header2">
-			<a href="video.php">動畫</a>
+			<a href="video.php?vediotype=animax">動畫</a>
 		
-			<a href="video.php">電影</a>
+			<a href="video.php?vediotype=movie">電影</a>
 	
-			<a href="video.php">影集</a>
+			<a href="video.php?vediotype=tvseries">影集</a>
 	
 			<a href="rank.php">排行榜</a>
 	</div>
