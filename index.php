@@ -1,13 +1,16 @@
+<?php 
+	include_once "./system/session.php"; 
+?>	
 <!DOCTYPE html>
 <html>
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>NTUIM CLOULD THEATER雲端影城</title>
-	<script type="text/javascript" src="system/js/jquery-1.11.2.min"></script>
+	<script type="text/javascript" src="system/js/jquery-1.11.2.min.js"></script>
 	<link type="text/css" rel="stylesheet" href="css/index.css"/>
-	<script type="text/javascript" src="js/jssor.core.js"></script>
-	<script type="text/javascript" src="js/jssor.utils.js"></script>
-	<script type="text/javascript" src="js/jssor.slider.js"></script>
+	<script type="text/javascript" src="system/js/jssor.core.js"></script>
+	<script type="text/javascript" src="system/js/jssor.utils.js"></script>
+	<script type="text/javascript" src="system/js/jssor.slider.js"></script>
 	<script>
 		$(document).ready(function () {
 
@@ -65,7 +68,7 @@
 			function ScaleSlider() {
 				var parentWidth = jssor_slider1.$Elmt.parentNode.clientWidth;
 				if (parentWidth)
-					jssor_slider1.$SetScaleWidth(Math.min(parentWidth, 1140));
+					jssor_slider1.$SetScaleWidth(Math.min(parentWidth, 600));
 				else
 					window.setTimeout(ScaleSlider, 30);
 			}
@@ -93,6 +96,53 @@
 				include_once "header.php"; 
 			?>	
 			<div id="main_page">
+				<div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 600px; height: 300px; overflow: hidden; ">
+
+					<!-- Loading Screen -->
+					<div u="loading" style="position: absolute; top: 0px; left: 0px;">
+						<div style="filter: alpha(opacity=70); opacity:1;background:#15191f; position: absolute; display: block;
+							 top: 0px; left: 0px;width: 100%;height:100%;">
+						</div>
+						<div style="position:absolute; display: block; top: 0px; left: 0px;width: 100%;height:100%; width:100%;text-align:center">
+							<img src="img/slider/loading.gif"/>
+						</div>
+						
+						<!--<div style="position: absolute; display: block; background: url(img/slider/loading.gif) no-repeat center center;
+							top: 200px; left: 250px;width: 30%;height:30%;">
+						</div>
+						-->
+					</div>
+					<!-- Slides Container -->
+					<div u="slides" style="position: absolute; left: 0px; top: 0px; width: 600px; height: 300px; overflow: hidden;">
+						<div>
+							<img u="image" src="img/slider/slider1.png" />
+						</div>
+						<div>
+							<img u="image" src="img/slider/slider2.png" />
+						</div>
+						<div>
+							<img u="image" src="img/slider/_0006397.png" />
+						</div>
+						<div>
+							<img u="image" src="img/guide.png" />
+						</div>
+					</div>
+					<!-- bullet navigator container -->
+					<div u="navigator" class="jssorb05" style="position: absolute; bottom: 16px; right: 6px;">
+						<!-- bullet navigator item prototype -->
+						<div u="prototype" style="POSITION: absolute; WIDTH: 16px; HEIGHT: 16px;"></div>
+					</div>
+					<!-- Arrow Navigator Skin Begin -->
+					<!-- Arrow Left -->
+					<span u="arrowleft" class="jssora12l" style="width: 30px; height: 46px; top: 230px; left: 0px;">
+					</span>
+					<!-- Arrow Right -->
+					<span u="arrowright" class="jssora12r" style="width: 30px; height: 46px; top: 230px; right: 0px">
+					</span>
+					<!-- Arrow Navigator Skin End -->
+					<a style="display: none" href="http://www.jssor.com">javascript</a>
+				</div>
+				<!-- Jssor Slider End -->
 			</div>
 			<?php 
 				//include_once "footer.php"; 

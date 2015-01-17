@@ -1,30 +1,13 @@
-.header1_item{
-	display:inline-block; 	
-}	
-.header2_item{
-	display:inline-block; 
-	margin: 0px auto;	
-	
-}	
-
-
-.float_right{
-	float:right;
-}	
-
 html body{
 	background:black;
 }
-
-
 #header{
 	margin: 0px auto;
 	background:gray;
 	height:50px;
 }
-
 #header1{
-	text-align:right;
+	//text-align:right;
 	margin: 0px auto;
 	height:30px;
 	position:relative;
@@ -36,6 +19,26 @@ html body{
 	width:500px;
 	position:relative;
 }
+.header1_item{
+	display:inline-block; 
+	height:30px;	
+}	
+.header1_logo{
+	display:inline-block; 
+	height:30px;	
+}	
+.header2_item{
+	display:inline-block; 
+	margin: 0px auto;	
+}	
+
+
+.float_right{
+	float:right;
+}	
+.float_left{
+	float:left;
+}	
 
 #content_wrapper{
 	width:900px;

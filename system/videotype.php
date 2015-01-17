@@ -127,15 +127,9 @@ function delete_videoType(videoTypeID){
 				<td>種類</td>
 				<td>
 					<select id="videoTypeName">
-						<option value="movie">
-							電影
-						</option>
-						<option value="tvseries">
-							影集
-						</option>
-						<option value="animax">
-							動畫
-						</option>
+						<option value="movie">電影</option>
+						<option value="tvseries">影集</option>
+						<option value="animax">動畫</option>
 					</select>
 				</td>
 			</tr>

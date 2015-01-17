@@ -1,0 +1,25 @@
+#videolist_page{
+	background:white;
+	//height:1000px;
+	text-align:center;
+}
+.videolist_item{
+	margin:20px;
+	border:1px solid black;
+	padding:10px;
+	//width:220px;
+	display:inline-block;
+}
+.videolist_item_image{
+	width:200px;
+	height:200px;
+}
+
+
+.orderByItem{
+	display:inline-block;
+	cursor:pointer;
+}
+.orderByItem_choose{
+	font-weight:bold;
+}

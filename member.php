@@ -1,9 +1,19 @@
+<?php 
+	include_once "./system/session.php"; 
+	
+	if(!isset($_SESSION["user"])){
+		echo
+			"<script>".
+				"window.location.replace('/db2014/login.php');".
+			"</script>";
+	}
+?>	
 <!DOCTYPE html>
 <html>
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>NTUIM CLOULD THEATER雲端影城</title>
-	<script type="text/javascript" src="system/js/jquery-1.11.2.min"></script>
+	<script type="text/javascript" src="system/js/jquery-1.11.2.min.js"></script>
 	<link type="text/css" rel="stylesheet" href="css/member.css"/>
 	
 	<script>
@@ -19,8 +29,12 @@
 			<!-- header -->
 			<?php 
 				include_once "header.php"; 
+				
 			?>	
 			<div id="member_page">
+			
+			
+			
 			</div>
 			<?php 
 				//include_once "footer	.php"; 
