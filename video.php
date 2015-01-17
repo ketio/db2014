@@ -12,7 +12,10 @@
 		});
 	</script>	
 	</head>
-
+	
+	<style>
+	</style>
+	
 	<body>
 		<div id="content_wrapper">
 
@@ -21,6 +24,12 @@
 				include_once "header.php"; 
 			?>	
 			<div id="rank_page">
+				<div>
+					|依名稱|依排名排序|依價格排序|依購買人次|依上架時間|
+				</div>
+				<div>
+					
+				</div>
 			</div>
 			<?php 
 				//include_once "footer	.php"; 
