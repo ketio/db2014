@@ -41,7 +41,7 @@
 		height:1000px;
 	}
 	#login_text{
-		height: 22px;
+		height: 23px;
 		width: 150px;
 		background-color: black;
 		margin-left: auto;
@@ -52,6 +52,7 @@
 		font-family: 微軟正黑體;
 		text-align: center;
 		vertical-align: middle;
+		line-height: 23px;
 	}
 	.text_css{
 		font-family: Arial, Tahoma, 微軟正黑體;
