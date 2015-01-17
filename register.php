@@ -41,7 +41,7 @@
 		height:1000px;
 	}
 	#login_text{
-		height: 20px;
+		height: 22px;
 		width: 150px;
 		background-color: black;
 		margin-left: auto;
