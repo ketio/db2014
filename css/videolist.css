@@ -41,19 +41,20 @@
 }
 .video_rating_star_cell{
 	text-align:left;
+	margin-bottom: 4px;
 }
 .videolist_item_image_cell{
 	
 }
 .videolist_item_name{
 	font-size:13pt;
-	
+	text-align:left;
 }
 .videolist_item_rentPrice{	
-	
+	text-align:right;
 
 }
 .videolist_item_buyPrice{
-
+	text-align:right;
 
 }

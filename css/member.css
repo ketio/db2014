@@ -5,12 +5,16 @@
 #member_option_row{
 	text-align:center;
 	width:500px;
+	height: 
 	margin:0px auto;
 }
 
 .member_option_item{
 	display:inline-block;
-
+	cursor:pointer;
+	height: 35px;
+	line-height:35px;
+	padding-top:5px;
 }
 #member_interface{
 	width:100%;
