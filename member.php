@@ -192,7 +192,7 @@
 									"<td class='video_list_table_title_date'>"+
 										"起租時間"+
 									"</td>"+
-									"<td class='video_list_table_title_date'>>"+
+									"<td class='video_list_table_title_date'>"+
 										"到期時間"+
 									"</td>"+
 									"<td class='video_list_table_title_stars'>"+
