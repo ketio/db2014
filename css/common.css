@@ -1,41 +1,47 @@
 html body{
 	background:black;
+	font-family: 微軟正黑體;
 }
 #header{
 	margin: 0px auto;
-	background:gray;
-	height:80px;
+	height:120px;
 }
 #header1{
 	//text-align:right;
 	margin: 0px auto;
-	height:50px;
+	height:70px;
+	background-color: rgb(202, 194, 194);
 	position:relative;
 }
 #header2{
 	text-align:center;
 	margin: 0px auto;
 	height:30px;
-	width:500px;
-	position:relative;
+	width:900px;
+	background-color: white;
+	padding-top:20px;
+	line-height:30px;
+	position: relative;
 }
 #title_logo{
-	height: 50px;
+	height: 60px;
 }
 
 .header1_item{
 	display:inline-block; 
-	height:30px;	
+	height:30px;
+	line-height:30px;
+	font-family: 微軟正黑體;
 }	
 .header1_logo{
 	display:inline-block; 
-	height:30px;	
+	height:70px;	
 }	
 .header2_item{
 	display:inline-block; 
-	margin: 0px auto;	
+	margin: 0px auto;
+	font-family: 微軟正黑體;
 }	
-
 
 .float_right{
 	float:right;

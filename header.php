@@ -12,9 +12,11 @@ $(document).ready(function(){
 		<div class="header1_logo float_left">
 			<a href="index.php"><img id="title_logo" src="data/title.png"/></a>
 		</div>
+		<div class="header1_item float_right">&nbsp;|&nbsp;</div>
 		<div class="header1_item float_right">
 			<a href="member.php">會員專區</a>
 		</div>
+		<div class="header1_item float_right">&nbsp;|&nbsp;</div>
 		
 		<?php if(isset($_SESSION["user"])){	?>
 			<form id="logout_form" action="login_handle.php" method="post">
@@ -23,25 +25,31 @@ $(document).ready(function(){
 			<div  id="logout" class="header1_item float_right">
 				登出
 			</div>
+			<div class="header1_item float_right">&nbsp;|&nbsp;</div>
 			<div class="header1_item float_right">
-				<?php echo $_SESSION["user"]["userName"]; ?> 你好 &nbsp;
+				<?php echo $_SESSION["user"]["userName"]; ?> ，你好！ &nbsp; 
 			</div>	
 		<?php } ?>		
 
 	</div>
 	<div id="header2">
+		<div class="header2_item">|</div>
 		<div class="header2_item">
 			<a href="videolist.php?vediotypename=animax">動畫</a>
 		</div>
+		<div class="header2_item">|</div>
 		<div class="header2_item">
 			<a href="videolist.php?vediotypename=movie">電影</a>
 		</div>
+		<div class="header2_item">|</div>
 		<div class="header2_item">
 			<a href="videolist.php?vediotypename=tvseries">影集</a>
 		</div>
+		<div class="header2_item">|</div>
 		<div class="header2_item">	
 			<a href="rank.php">排行榜</a>
 		</div>
+		<div class="header2_item">|</div>
 	</div>
 </div>
 
