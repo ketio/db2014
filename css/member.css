@@ -4,9 +4,11 @@
 }
 #member_option_row{
 	text-align:center;
-	width:500px;
-	height: 
 	margin:0px auto;
+	cursor:pointer;
+	height: 35px;
+	line-height:35px;
+	padding-top:5px;
 }
 
 .member_option_item{
@@ -30,8 +32,20 @@
 }
 
 .video_list_table_row{
+	
 
 }
 .video_list_table_title{
-
+	background-color: rgb(209, 221, 232);
+}
+.video_list_table_title_name{
+	width: 300px;
+}
+.video_list_table_title_date{
+	width: 200px;
+	
+}
+.video_list_table_title_stars{
+	width: 120px;
+	
 }

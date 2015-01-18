@@ -58,10 +58,10 @@
 									"<td>"+
 										"圖片"+
 									"</td>"+
-									"<td>"+
+									"<td class='video_list_table_title_name'>"+
 										"影片名稱"+
 									"</td>"+
-									"<td>"+
+									"<td class='video_list_table_title_date'>"+
 										"加入時間"+
 									"</td>"+
 								"</tr>"+
@@ -114,13 +114,13 @@
 									"<td>"+
 										"圖片"+
 									"</td>"+
-									"<td>"+
+									"<td class='video_list_table_title_name'>"+
 										"影片名稱"+
 									"</td>"+
-									"<td>"+
-										"加入時間"+
+									"<td class='video_list_table_title_date'>"+
+										"購買時間"+
 									"</td>"+
-									"<td>"+
+									"<td class='video_list_table_title_stars'>"+
 										"評價"+
 									"</td>"+
 								"</tr>"+
@@ -186,16 +186,16 @@
 									"<td>"+
 										"圖片"+
 									"</td>"+
-									"<td>"+
+									"<td class='video_list_table_title_name'>"+
 										"影片名稱"+
 									"</td>"+
-									"<td>"+
+									"<td class='video_list_table_title_date'>"+
 										"起租時間"+
 									"</td>"+
-									"<td>"+
+									"<td class='video_list_table_title_date'>>"+
 										"到期時間"+
 									"</td>"+
-									"<td>"+
+									"<td class='video_list_table_title_stars'>"+
 										"評價"+
 									"</td>"+
 								"</tr>"+
@@ -353,13 +353,13 @@
 				<div id="member_option_row">
 					<div id="wanted_list_option" class="member_option_item get_list_item">
 						願望清單
-					</div>
+					</div>&nbsp;|
 					<div id="buy_list_option" class="member_option_item get_list_item">
 						購買清單
-					</div>
+					</div>&nbsp;|
 					<div id="rent_list_option" class="member_option_item get_list_item">
 						租借清單
-					</div>
+					</div>&nbsp;|
 					<div id="get_info_option" class="member_option_item get_info_item">
 						會員資料
 					</div>
