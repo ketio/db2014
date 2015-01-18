@@ -2,8 +2,14 @@
 	include_once $_SERVER['DOCUMENT_ROOT'].'/db2014/system/library.php';
 	include_once $_SERVER['DOCUMENT_ROOT'].'/db2014/system/session.php';
 	
-	$userID=$_SESSION["user"]["userID"];
-	$userName=$_SESSION["user"]["userName"];
+	if(isset($_SESSION["user"])){
+		$userID=$_SESSION["user"]["userID"];
+		$userName=$_SESSION["user"]["userName"];
+	}
+	else{
+		exit;
+	}
+	
 	if(isset($_POST["mode"]))	
 		$mode=$_POST["mode"];	
 	if(isset($_POST["videoID"]))	

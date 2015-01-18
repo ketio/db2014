@@ -2,7 +2,12 @@
 	include_once $_SERVER['DOCUMENT_ROOT'].'/db2014/system/library.php';
 	include_once $_SERVER['DOCUMENT_ROOT'].'/db2014/system/session.php';
 	
-	$userID=$_SESSION["user"]["userID"];
+	if(isset($_SESSION["user"])){
+		$userID=$_SESSION["user"]["userID"];
+	}
+	else{
+		exit;
+	}
 	if(isset($_POST["mode"]))	
 		$mode=$_POST["mode"];	
 
@@ -72,6 +77,26 @@
 			$temp["videoID"]=$videoID;
 			$temp["videoName"]=$videoName;
 			$temp["time"]=$time;
+			
+			$mysqli2=connect_database();
+			$rating = 0;
+			$query2=
+				"select ".
+					"rating ".
+				"from ".
+					"user_feedback ".
+				"where ".
+					"userID= ? and videoID= ? ";
+			$stmt2 = mysqli_prepare($mysqli2, $query2);
+			mysqli_stmt_bind_param($stmt2,"ss",$userID,$videoID);
+			mysqli_stmt_bind_result($stmt2,$ratingTemp);
+			mysqli_stmt_execute($stmt2);
+			if(mysqli_stmt_fetch($stmt2)){
+				$rating = $ratingTemp;
+			}			
+			mysqli_stmt_close($stmt2);
+			
+			$temp["rating"]=$rating;				
 			array_push($result,$temp);
 		}
 		mysqli_stmt_close($stmt);
@@ -92,6 +117,9 @@
 					echo "<time>";
 						echo $video["time"];
 					echo "</time>";
+					echo "<rating>";
+						echo $video["rating"];
+					echo "</rating>";
 				echo "</video>";
 			}
 			echo "</videos>";
@@ -118,6 +146,27 @@
 			$temp["videoName"]=$videoName;
 			$temp["startTime"]=$startTime;
 			$temp["endTime"]=$endTime;
+			
+			$mysqli2=connect_database();
+			$rating = 0;
+			$query2=
+				"select ".
+					"rating ".
+				"from ".
+					"user_feedback ".
+				"where ".
+					"userID= ? and videoID= ? ";
+			$stmt2 = mysqli_prepare($mysqli2, $query2);
+			mysqli_stmt_bind_param($stmt2,"ss",$userID,$videoID);
+			mysqli_stmt_bind_result($stmt2,$ratingTemp);
+			mysqli_stmt_execute($stmt2);
+			if(mysqli_stmt_fetch($stmt2)){
+				$rating = $ratingTemp;
+			}			
+			mysqli_stmt_close($stmt2);
+			
+			$temp["rating"]=$rating;
+			
 			array_push($result,$temp);
 		}
 		mysqli_stmt_close($stmt);
@@ -141,6 +190,9 @@
 					echo "<endTime>";
 						echo $video["endTime"];
 					echo "</endTime>";
+					echo "<rating>";
+						echo $video["rating"];
+					echo "</rating>";
 				echo "</video>";
 			}
 			echo "</videos>";

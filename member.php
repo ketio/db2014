@@ -15,9 +15,9 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>NTUIM CLOULD THEATER雲端影城</title>
 	<script type="text/javascript" src="system/js/jquery-1.11.2.min.js"></script>
-	<script type="text/javascript" src="system/js/jRating/jRating.jquery.js"></script>
+	<script type="text/javascript" src="system/js/raty/lib/jquery.raty.js"></script>
 	<link type="text/css" rel="stylesheet" href="css/member.css"/>
-	<link type="text/css" rel="stylesheet" href="system/js/jRating/jRating.jquery.css"/>
+	<link type="text/css" rel="stylesheet" href="system/js/raty/lib/jquery.raty.css"/>
 
 	
 	
@@ -133,7 +133,8 @@
 							var video={
 								videoID:$(this).children("videoID").text(),
 								videoName:$(this).children("videoName").text(),
-								time:$(this).children("time").text()
+								time:$(this).children("time").text(),
+								rating:$(this).children("rating").text(),
 							};
 							
 							$("#buy_list").append(
@@ -148,18 +149,22 @@
 										video.time+
 									"</td>"+
 									"<td>"+
-										"<div class='videoRating' videoID='"+video.videoID+"' videoRate='' >"+
+										"<div id='Rating_"+video.videoID+"' data-number='"+video.rating+"' >"+
 										
 										"</div>"+
 									"</td>"+
 								"</tr>"
 							);
+							
+							$("#Rating_"+video.videoID).raty({
+								path:"system/js/raty/lib/images",
+								score:video.rating,
+								click: function(score) {
+									setRating(video.videoID,score);
+								},
+							});
 						
-						});		
-
-						$('.videoRating').jRating();
-
-						
+						});								
 					}			
 				});
 			}
@@ -190,6 +195,9 @@
 									"<td>"+
 										"到期時間"+
 									"</td>"+
+									"<td>"+
+										"評價"+
+									"</td>"+
 								"</tr>"+
 							"</table>"					
 						);
@@ -201,7 +209,8 @@
 								videoID:$(this).children("videoID").text(),
 								videoName:$(this).children("videoName").text(),
 								startTime:$(this).children("startTime").text(),
-								endTime:$(this).children("endTime").text()
+								endTime:$(this).children("endTime").text(),
+								rating:$(this).children("rating").text()
 							};
 							console.log(video);
 							$("#buy_list").append(
@@ -218,9 +227,22 @@
 									"<td>"+
 										video.endTime+
 									"</td>"+
+									"<td>"+
+										"<div id='Rating_"+video.videoID+"' data-number='"+video.rating+"' >"+
+										
+										"</div>"+
+									"</td>"+
 								"</tr>"
 							);
 						
+							$("#Rating_"+video.videoID).raty({
+								path:"system/js/raty/lib/images",
+								score:video.rating,
+								click: function(score) {
+									setRating(video.videoID,score);
+								},
+							});
+							
 						});						
 					}			
 				});
@@ -297,6 +319,24 @@
 					}			
 				});
 			}
+		}
+		
+		function setRating(videoID,score){
+		
+			$.ajax({
+				async: true,
+				type: "post",
+				url: "./ajax/setrating.php",
+				dataType: "xml",
+				data:{
+					score:score,
+					videoID:videoID
+				},
+				success: function(response){
+				
+				}
+			});
+		
 		}
 	</script>	
 	</head>
