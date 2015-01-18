@@ -13,6 +13,9 @@
 			$("#login_text").click(function(){
 				$("#login_form").submit();			
 			});
+			$("#goto_register").click(function(){
+				//$("///").submit();			
+			});
 		});
 	</script>
 	<body>
@@ -39,8 +42,11 @@
 							<input type="text" name="password"> </input>
 						</div>
 						<input type="hidden" name="mode" value="login"> </input>
-						<div id="login_text">
+						<div id="login_text" class="login_text">
 							登入
+						</div>
+						<div id="goto_register" class="login_text">
+							申請會員
 						</div>
 					</form>
 				</div>

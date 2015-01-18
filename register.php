@@ -5,8 +5,8 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>NTUIM CLOULD THEATER雲端影城</title>
-	<script type="text/javascript" src="system/js/jquery-1.11.2.min"></script>
-	<link type="text/css" rel="stylesheet" href="css/login.css"/>
+	<script type="text/javascript" src="system/js/jquery-1.11.2.min.js"></script>
+	<link type="text/css" rel="stylesheet" href="css/register.css"/>
 	
 	<script>
 		$(document).ready(function () {
@@ -16,7 +16,7 @@
 	</head>
 
 	<style>
-	#signIn_text{
+	#register_text{
 		width: 200px;
 		height: 30px;
 		background-color: rgb(228, 228, 228);
@@ -29,7 +29,7 @@
 		font-family: Verdana, Geneva, sans-serif;
 		font-weight: bold;
 	}
-	#login_interface{
+	#register_interface{
 		padding-top: 40px;
 		padding-left: 80px;
 		width: 500px;
@@ -39,11 +39,11 @@
 		margin-left: auto;
 		margin-right: 70px;
 	}
-	#login_page{
+	#register_page{
 		background:white;
 		height:1000px;
 	}
-	#login_text{
+	#confirm_text{
 		height: 23px;
 		width: 150px;
 		background-color: black;
@@ -54,17 +54,23 @@
 		color: white;
 		font-family: 微軟正黑體;
 		text-align: center;
-		vertical-align: middle;
 		line-height: 23px;
+		
+		cursor:pointer;
 	}
 	.text_css{
 		font-family: Arial, Tahoma, 微軟正黑體;
 		text-align: right;
 		line-height: 300%;
 	}
-
 	</style>
-
+	<script>
+		$(document).ready(function () {
+			$("#confirm_text").click(function(){
+				$("#register_form").submit();			
+			});
+		});
+	</script>
 
 	<body>
 		<div id="content_wrapper">
@@ -72,41 +78,48 @@
 			<?php 
 				include_once "header.php"; 
 			?>	
-			<div id="login_page" >
+			<div id="register_page" >
 				<div style="height: 50px;">
 				</div>
-				<div id="login_interface">
-					<div id="signIn_text">
-						&nbsp&nbsp REGISTER
-					</div>
-					<div class="text_css">
-						ACCOUNT | 會員帳號
-						<input>
-						</input>
-					</div>
-					<div class="text_css">
-						PASSWORD | 登入密碼
-						<input>
-						</input>
-					</div>
-					<div class="text_css">
-						USERNAME | 會員名稱
-						<input>
-						</input>
-					</div>
-					<div class="text_css">
-						GENDER | 性別
-						<input>
-						</input>
-					</div>
-					<div class="text_css">
-						BIRTHDAY | 生日
-						<input>
-						</input>
-					</div>
-					<div id="login_text">
-						確認申請
-					</div>
+				<div id="register_interface">
+					<form id="register_form" action="register_handle.php" method="post">
+						<div id="register_text">
+							&nbsp;&nbsp; REGISTER
+						</div>
+						<div class="text_css">
+							ACCOUNT | 會員帳號
+							<input type="text" name="account">
+							</input>
+						</div>
+						<div class="text_css" >
+							PASSWORD | 登入密碼
+							<input type="text" name="password">
+							</input>
+						</div>
+						<div class="text_css">
+							USERNAME | 會員名稱
+							<input type="text" name="username">
+							</input>
+						</div>
+						<div class="text_css">
+							GENDER | 性別
+							<select id="gender" name="gender" style="width: 175px">
+								  <option value="F">女性 Female</option>
+								  <option value="N">男性 Male</option>
+								  <option value="N">中性 Neutral</option>
+								</select>
+							</input>
+						</div>
+						<div class="text_css">
+							BIRTHDAY | 生日
+							<input id="birthday_y" name="birthday_y" type="text" size=5/>&nbsp;年
+							<input id="birthday_m" name="birthday_m" type="text" size=2/>&nbsp;月
+							<input id="birthday_d" name="birthday_d" type="text" size=2/>&nbsp;日
+						</div>
+						<div id="confirm_text">
+							確認申請
+						</div>
+					</form>
 				</div>
 				
 			</div>
