@@ -152,6 +152,7 @@
 		
 		$isHaving=0;
 		$isRent=0;
+		$isPut=0;
 		if($islogin){
 			$query=
 				"select ".
@@ -169,7 +170,6 @@
 			}
 			mysqli_stmt_close($stmt);
 			
-			
 			$query=
 				"select ".
 					"rentID ".
@@ -184,7 +184,24 @@
 			if(mysqli_stmt_fetch($stmt)){
 				$isRent=1;
 			}
-			mysqli_stmt_close($stmt);		
+			mysqli_stmt_close($stmt);	
+
+			
+			$query=
+				"select ".
+					"wantedID ".
+				"from ".
+					"`wanted` ".
+				"where ".
+					"userID=? and videoID=?";
+			$stmt = mysqli_prepare($mysqli, $query);
+			mysqli_stmt_bind_param($stmt, "ss",$userID,$videoID);
+			mysqli_stmt_bind_result($stmt,$havingID);
+			mysqli_stmt_execute($stmt);
+			if(mysqli_stmt_fetch($stmt)){
+				$isPut=1;
+			}
+			mysqli_stmt_close($stmt);
 		}
 		echo "<response>";
 			echo "<result>";
@@ -225,7 +242,10 @@
 						echo "</isRent>";	
 						echo "<isHaving>";
 							echo $isHaving;
-						echo "</isHaving>";							
+						echo "</isHaving>";	
+						echo "<isPut>";
+							echo $isPut;
+						echo "</isPut>";							
 					echo "</video>";
 				}
 			echo "</videos>";				

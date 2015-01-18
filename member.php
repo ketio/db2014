@@ -32,6 +32,20 @@
 				
 			?>	
 			<div id="member_page">
+				<div id="member_option_row">
+					<div id="" class="member_option_item get_list_item">
+						願望清單
+					</div>
+					<div id="" class="member_option_item get_list_item">
+						購買清單
+					</div>
+					<div id="" class="member_option_item get_list_item">
+						租借清單
+					</div>
+					<div id="" class="member_option_item get_info_item">
+						會員資料
+					</div>
+				</div>
 			
 			
 			

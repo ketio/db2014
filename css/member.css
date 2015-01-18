@@ -2,3 +2,13 @@
 	background:white;
 	height:1000px;
 }
+#member_option_row{
+	text-align:center;
+	width:500px;
+	margin:0px auto;
+}
+
+.member_option_item{
+	display:inline-block;
+
+}

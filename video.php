@@ -90,8 +90,14 @@
 										"<td>剩餘儲值金額</td>"+
 										"<td>"+$(response).find("retainDeposit").text()+"</td>"+
 									"</tr>"+		
-								"</table>"
+								"</table>"+
+								"<div class='transactionConfirm'>確認</div>"
 							);
+							
+							$(".transactionConfirm").click(function(){
+								$(".transactionDialog").dialog("close");
+							});		
+							
 						}
 						else if(result=="FAIL"){
 							$("#buyDialog").empty();
@@ -151,8 +157,13 @@
 										"<td>剩餘儲值金額</td>"+
 										"<td>"+$(response).find("retainDeposit").text()+"</td>"+
 									"</tr>"+		
-								"</table>"
+								"</table>"+
+								"<div class='transactionConfirm'>確認</div>"
 							);
+							
+							$(".transactionConfirm").click(function(){
+								$(".transactionDialog").dialog("close");
+							});						
 						}
 						else if(result=="FAIL"){
 							$("#buyDialog").append(
@@ -182,8 +193,13 @@
 					if(result=="SUCCESS"){
 						$("#putDialog").empty();
 						$("#putDialog").append(
-							"已成功將 "+$(response).find("videoName").text()+" 放入願望清單"
+							"已成功將 "+$(response).find("videoName").text()+" 放入願望清單"+
+							"<div class='transactionConfirm'>確認</div>"
 						);
+							
+						$(".transactionConfirm").click(function(){
+							$(".transactionDialog").dialog("close");
+						});
 					}
 					else if(result=="FAIL"){
 						$("#buyDialog").empty();
@@ -229,7 +245,8 @@
 							lang:$(this).children("lang").text(),
 							intro:$(this).children("intro").text(),
 							isHaving:$(this).children("isHaving").text(),
-							isRent:$(this).children("isRent").text()
+							isRent:$(this).children("isRent").text(),
+							isPut:$(this).children("isPut").text()
 						}
 						
 						$("#video_interface").append(
