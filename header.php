@@ -10,7 +10,7 @@ $(document).ready(function(){
 <div id="header">
 	<div id="header1">
 		<div class="header1_logo float_left">
-			<a href="index.php">首頁LOGO</a>
+			<a href="index.php"><img id="title_logo" src="data/title.png"/></a>
 		</div>
 		<div class="header1_item float_right">
 			<a href="member.php">會員專區</a>

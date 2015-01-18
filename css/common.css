@@ -4,12 +4,12 @@ html body{
 #header{
 	margin: 0px auto;
 	background:gray;
-	height:50px;
+	height:80px;
 }
 #header1{
 	//text-align:right;
 	margin: 0px auto;
-	height:30px;
+	height:50px;
 	position:relative;
 }
 #header2{
@@ -19,6 +19,10 @@ html body{
 	width:500px;
 	position:relative;
 }
+#title_logo{
+	height: 50px;
+}
+
 .header1_item{
 	display:inline-block; 
 	height:30px;	
