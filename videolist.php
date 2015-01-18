@@ -76,15 +76,15 @@
 						
 						$("#videolist_interface").append(
 							"<div class='videolist_item'>"+
-								"<div id='Rating_"+video.videoID+"' data-number='"+video.rating+"' ></div>"+
+								"<div class='video_rating_star_cell' id='Rating_"+video.videoID+"' data-number='"+video.rating+"' ></div>"+
 								"<div class='videolist_item_image_cell'>"+
 									"<a href='video.php?videoid="+video.videoID+"'>"+
 										"<img class='videolist_item_image' src='http://"+<?php echo '"'.$_SERVER['HTTP_HOST'].'"'; ?>+"/db2014/data/cover/"+video.videoID+".png'>"+
 									"</a>"+
 								"</div>"+
 								"<div class='videolist_item_name'>"+video.videoName+"</div>"+
-								"<div class='videolist_item_rentPrice'>售價 "+video.buyPrice+"</div>"+
-								"<div class='videolist_item_buyPrice'>租金 "+video.rentPrice+"</div>"+
+								"<div class='videolist_item_rentPrice'>售 NT. "+video.buyPrice+"</div>"+
+								"<div class='videolist_item_buyPrice'>租 NT. "+video.rentPrice+"</div>"+
 							"</div>"
 						);	
 						

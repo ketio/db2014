@@ -13,6 +13,7 @@
 	padding:10px;
 	//width:220px;
 	display:inline-block;
+	font-size:12pt;
 }
 .videolist_item_image{
 	width:200px;
@@ -34,4 +35,25 @@
 	display:inline-block;
 	font-family: Arial, Tahoma, 微軟正黑體;
 	
-	}
+	
+
+
+}
+.video_rating_star_cell{
+	text-align:left;
+}
+.videolist_item_image_cell{
+	
+}
+.videolist_item_name{
+	font-size:13pt;
+	
+}
+.videolist_item_rentPrice{	
+	
+
+}
+.videolist_item_buyPrice{
+
+
+}
