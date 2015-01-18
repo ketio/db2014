@@ -13,9 +13,6 @@ $(document).ready(function(){
 			<a href="index.php">首頁LOGO</a>
 		</div>
 		<div class="header1_item float_right">
-			願望清單
-		</div>
-		<div class="header1_item float_right">
 			<a href="member.php">會員專區</a>
 		</div>
 		

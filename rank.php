@@ -10,7 +10,7 @@
 	<link type="text/css" rel="stylesheet" href="css/rank.css"/>
 	
 	<script>
-		$(document).ready(function () {
+		$(document).ready(function (){
 
 		});
 	</script>	

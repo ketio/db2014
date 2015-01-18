@@ -12,3 +12,12 @@
 	display:inline-block;
 
 }
+#member_interface{
+	width:100%;
+	text-align:center;
+	
+}
+.video_picture{
+	width:80px;
+	height:80px;
+}
