@@ -86,7 +86,7 @@
 										video.videoName+
 									"</td>"+
 									"<td class='video_list_table_cell'>"+
-										video.time+
+										video.time.substr(0, 10)+
 									"</td>"+
 								"</tr>"
 							);
@@ -146,7 +146,7 @@
 										video.videoName+
 									"</td>"+
 									"<td class='video_list_table_cell'>"+
-										video.time+
+										video.time.substr(0, 10)+
 									"</td>"+
 									"<td class='video_list_table_cell'>"+
 										"<div id='Rating_"+video.videoID+"' data-number='"+video.rating+"' >"+
@@ -222,10 +222,10 @@
 										video.videoName+
 									"</td>"+
 									"<td class='video_list_table_cell'>"+
-										video.startTime+
+										video.startTime.substr(0, 10)+
 									"</td>"+
 									"<td class='video_list_table_cell'>"+
-										video.endTime+
+										video.endTime.substr(0, 10)+
 									"</td>"+
 									"<td class='video_list_table_cell'>"+
 										"<div id='Rating_"+video.videoID+"' data-number='"+video.rating+"' >"+
