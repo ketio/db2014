@@ -9,6 +9,7 @@
 	height: 35px;
 	line-height:35px;
 	padding-top:5px;
+	padding-bottom: 5px;
 }
 
 .member_option_item{
@@ -33,19 +34,30 @@
 
 .video_list_table_row{
 	
-
 }
 .video_list_table_title{
 	background-color: rgb(209, 221, 232);
+	
+}
+.video_list_table_title_img{
+	border-bottom:2px dashed gray;
 }
 .video_list_table_title_name{
 	width: 300px;
+	border-bottom:2px dashed gray;
 }
 .video_list_table_title_date{
-	width: 200px;
+	width: 140px;
+	border-bottom:2px dashed gray;
 	
 }
 .video_list_table_title_stars{
 	width: 120px;
-	
+	border-bottom:2px dashed gray;
+}
+.video_list_table_cell{
+	border-bottom:2px dashed gray;
+}
+#member_data_table{
+	margin:0px auto;
 }
