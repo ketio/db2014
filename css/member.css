@@ -49,10 +49,10 @@
 .video_list_table_title_date{
 	width: 140px;
 	border-bottom:2px dashed gray;
-	
 }
 .video_list_table_title_stars{
 	width: 120px;
+	border-bottom:2px dashed gray;
 }
 .video_list_table_cell{
 	border-bottom:2px dashed gray;
