@@ -16,6 +16,7 @@
 		});
 	</script>
 	<body>
+		<div class="mask"></div>
 		<div id="content_wrapper">
 			<!-- header -->
 			<?php 

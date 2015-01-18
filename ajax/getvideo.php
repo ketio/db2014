@@ -1,5 +1,7 @@
 <?php
 	include_once $_SERVER['DOCUMENT_ROOT'].'/db2014/system/library.php';
+	include_once $_SERVER['DOCUMENT_ROOT'].'/db2014/system/session.php';
+	
 	if(isset($_POST["videoTypeName"]))	
 		$videoTypeName=$_POST["videoTypeName"];
 	if(isset($_POST["videoTypeMode"]))	
@@ -65,8 +67,6 @@
 			array_push($result,$temp);
 		}
 		mysqli_stmt_close($stmt);
-		
-		
 
 		echo "<response>";
 			echo "<result>";
@@ -111,6 +111,14 @@
 		echo "</response>";
 	}
 	elseif($mode=="item"){
+	
+		$islogin=false;
+		if(isset($_SESSION["user"]["userID"])){
+			$islogin=true;
+			$userID=$_SESSION["user"]["userID"];
+		}
+		
+	
 		$result=array();
 		$query=
 			"select ".
@@ -142,6 +150,42 @@
 		}
 		mysqli_stmt_close($stmt);
 		
+		$isHaving=0;
+		$isRent=0;
+		if($islogin){
+			$query=
+				"select ".
+					"havingID ".
+				"from ".
+					"`having` ".
+				"where ".
+					"userID=? and videoID=?";
+			$stmt = mysqli_prepare($mysqli, $query);
+			mysqli_stmt_bind_param($stmt, "ss",$userID,$videoID);
+			mysqli_stmt_bind_result($stmt,$havingID);
+			mysqli_stmt_execute($stmt);
+			if(mysqli_stmt_fetch($stmt)){
+				$isHaving=1;
+			}
+			mysqli_stmt_close($stmt);
+			
+			
+			$query=
+				"select ".
+					"rentID ".
+				"from ".
+					"rent ".
+				"where ".
+					"userID=? and videoID=?";
+			$stmt = mysqli_prepare($mysqli, $query);
+			mysqli_stmt_bind_param($stmt, "ss",$userID,$videoID);
+			mysqli_stmt_bind_result($stmt,$rentID);
+			mysqli_stmt_execute($stmt);
+			if(mysqli_stmt_fetch($stmt)){
+				$isRent=1;
+			}
+			mysqli_stmt_close($stmt);		
+		}
 		echo "<response>";
 			echo "<result>";
 				echo "取得成功";
@@ -175,7 +219,13 @@
 						echo "</lang>";		
 						echo "<intro>";
 							echo $video["intro"];
-						echo "</intro>";							
+						echo "</intro>";
+						echo "<isRent>";
+							echo $isRent;
+						echo "</isRent>";	
+						echo "<isHaving>";
+							echo $isHaving;
+						echo "</isHaving>";							
 					echo "</video>";
 				}
 			echo "</videos>";				
