@@ -4,6 +4,19 @@ $(document).ready(function(){
 	$("#logout").click(function(){
 		$("#logout_form").submit();			
 	});
+	
+	
+	$("#header_search_input").focus(function(){
+		if($(this).val()=="請輸入影片名稱"){
+			$(this).val("");
+		}
+	});
+	$("#header_search_input").blur(function(){
+		
+		if($(this).val()==""){
+			$(this).val("請輸入影片名稱");
+		}
+	});
 });
 </script>
 
