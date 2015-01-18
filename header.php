@@ -12,7 +12,7 @@ $(document).ready(function(){
 		<div class="header1_logo float_left">
 			<a href="index.php"><img id="title_logo" src="data/title.png"/></a>
 		</div>
-		<div class="header1_item float_right">&nbsp;|&nbsp;</div>
+		<div class="header1_item float_right">&nbsp;|&nbsp;&nbsp;&nbsp;</div>
 		<div class="header1_item float_right">
 			<a href="member.php">會員專區</a>
 		</div>
