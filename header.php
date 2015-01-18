@@ -30,7 +30,13 @@ $(document).ready(function(){
 				<?php echo $_SESSION["user"]["userName"]; ?> ，你好！ &nbsp; 
 			</div>	
 		<?php } ?>		
-
+		
+		<div id="header_search_block">
+			<input id="header_search_input" type="text" name="fname" value="請輸入影片名稱">
+			<div id="header_search_button">
+				SEARCH
+			</div>
+		</div>
 	</div>
 	<div id="header2">
 		<div class="header2_item">|</div>
