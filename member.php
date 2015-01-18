@@ -263,7 +263,7 @@
 						$("#member_interface").empty();
 						$("#member_interface").append(
 							"<table id='member_data_table'>"+
-								"<tr>"+
+								"<tr class='member_data_table_title'>"+
 									"<td>"+
 										"帳號名稱"+
 									"</td>"+
