@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主機: 127.0.0.1
--- 產生時間： 2015-01-18: 14:17:27
+-- 產生時間： 2015-01-18: 14:22:25
 -- 伺服器版本: 5.6.17
 -- PHP 版本： 5.5.12
 
@@ -279,10 +279,18 @@ INSERT INTO `videotype` (`videoTypeID`, `videoTypeName`, `videoTypeMode`) VALUES
 CREATE TABLE IF NOT EXISTS `wanted` (
   `wantedID` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `userID` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `vedioID` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `videoID` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `time` datetime NOT NULL,
   PRIMARY KEY (`wantedID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- 資料表的匯出資料 `wanted`
+--
+
+INSERT INTO `wanted` (`wantedID`, `userID`, `videoID`, `time`) VALUES
+('wanted-939ce419eaf4acdfd73d9fc68e822847', 'user-00000000000000000000000000000000', 'video-4ea7f291aa35a993d89a748e81801eda', '2015-01-18 14:22:00'),
+('wanted-c6488cdb2ddcf6f6f2e83be971b6e353', 'user-00000000000000000000000000000000', 'video-4ea7f291aa35a993d89a748e81801eda', '2015-01-18 14:21:48');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -153,13 +153,30 @@
 	}
 	elseif($mode=="put"){
 	
-		$rentID=get_id("rent","rent","rentID",$mysqli);
+		$time=date('Y-m-d H:i:s', time());
+	
+		$wantedID=get_id("wanted","wanted","wantedID",$mysqli);
 			
-		$query=	"insert into `rent`(rentID,userID,videoID,startTime,endTime) values (?,?,?,?,?) ";
+		$query=	"insert into `wanted`(wantedID,userID,videoID,time) values (?,?,?,?) ";
 		$stmt = mysqli_prepare($mysqli, $query);
-		mysqli_stmt_bind_param($stmt, "sssss",$rentID,$userID,$videoID,$startTime,$endTime);
+		mysqli_stmt_bind_param($stmt, "ssss",$wantedID,$userID,$videoID,$time);
 		mysqli_stmt_execute($stmt);
 		mysqli_stmt_close($stmt);		
+	
+		$videoName="";
+		$query=
+			"select ".
+				"videoName ".
+			"from ".
+				"video ".
+			"where ".
+				"videoID= ? ";
+		$stmt = mysqli_prepare($mysqli, $query);
+		mysqli_stmt_bind_param($stmt, "s",$videoID);
+		mysqli_stmt_bind_result($stmt,$videoName);
+		mysqli_stmt_execute($stmt);
+		mysqli_stmt_fetch($stmt);
+		mysqli_stmt_close($stmt);	
 	
 		echo "<response>";
 			echo "<result>";
@@ -168,24 +185,12 @@
 			echo "<userName>";
 				echo $userName;
 			echo "</userName>";
-			echo "<depositSum>";
-				echo $depositSum;
-			echo "</depositSum>";
 			echo "<videoName>";
 				echo $videoName;
 			echo "</videoName>";
-			echo "<rentPrice>";
-				echo $rentPrice;
-			echo "</rentPrice>";
-			echo "<startTime>";
-				echo $startTime;
-			echo "</startTime>";
-			echo "<endTime>";
-				echo $endTime;
-			echo "</endTime>";
-			echo "<retainDeposit>";
-				echo $depositSum-$rentPrice;
-			echo "</retainDeposit>";
+			echo "<time>";
+				echo $time;
+			echo "</time>";
 		echo "</response>";
 	}
 	
