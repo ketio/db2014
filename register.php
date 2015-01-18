@@ -86,7 +86,7 @@
 						<div id="register_text">
 							&nbsp;&nbsp; REGISTER
 						</div>
-						<div class="text_css">
+						<div class="text_css" style="margin-top:10px">
 							ACCOUNT | 會員帳號
 							<input type="text" name="account">
 							</input>

@@ -31,9 +31,9 @@
 				<div id="login_interface">
 					<form id="login_form" action="login_handle.php" method="post">
 						<div id="signIn_text">
-							&nbsp;&nbsp; SIGN IN
+							SIGN IN
 						</div>
-						<div class="text_css">
+						<div class="text_css" style="margin-top:10px">
 							ACCOUNT | 會員帳號
 							<input type="text" name="account"> </input>
 						</div>
