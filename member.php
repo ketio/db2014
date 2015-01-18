@@ -56,7 +56,7 @@
 						$("#member_interface").append(
 							"<table id='wanted_list' class='video_list_table'>"+
 								"<tr class='video_list_table_row video_list_table_title'> "+
-									"<td>"+
+									"<td class='video_list_table_title_img'>"+
 										"圖片"+
 									"</td>"+
 									"<td class='video_list_table_title_name'>"+
@@ -112,7 +112,7 @@
 						$("#member_interface").append(
 							"<table id='buy_list' class='video_list_table'>"+
 								"<tr class='video_list_table_row video_list_table_title'>"+
-									"<td>"+
+									"<td class='video_list_table_title_img'>"+
 										"圖片"+
 									"</td>"+
 									"<td class='video_list_table_title_name'>"+
@@ -184,7 +184,7 @@
 						$("#member_interface").append(
 							"<table id='buy_list' class='video_list_table'>"+
 								"<tr class='video_list_table_row video_list_table_title'>"+
-									"<td>"+
+									"<td class='video_list_table_title_img'>"+
 										"圖片"+
 									"</td>"+
 									"<td class='video_list_table_title_name'>"+
