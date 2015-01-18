@@ -21,23 +21,36 @@
 		$result=array();
 		$query=
 			"select ".
-				"A.videoID,A.videoName,C.videoTypeName,C.videoTypeMode,A.rentPrice,A.buyPrice,A.publishDate,B.publisherName,B.publisherCountry,A.lang,A.intro ".
+				"A.videoID,A.videoName,C.videoTypeName,C.videoTypeMode,A.rentPrice,A.buyPrice,A.publishDate,B.publisherName,B.publisherCountry,A.lang,A.intro, ".
+				"avg(ifnull(D.rating,0)) as rating,count(E.havingID) as buyCount ".
 			"from ".
-				"video as A, ".
+				"video as A ".
+				"left join ".
+				"user_feedback as D on D.videoID=A.videoID ". 
+				"left join ".
+				"`having` as E on E.videoID=A.videoID, ".
 				"publisher as B, ".
-				"videotype as C ".
+				"videotype as C ".				
 			"where ".
 				"B.publisherID = A.publisher and C.videoTypeID = A.videotype and C.videoTypeName= ? ";
 		if($videoTypeMode!="default"){
 			$query.=
 				" and C.videoTypeMode= ? ";
 		}
+			$query.=" group by A.videoID ";
+			
 		if($orderBy=="buyPrice"){
 			$query.=
 				"order by A.buyPrice";
 		}elseif($orderBy=="publishDate"){
 			$query.=
 				"order by A.publishDate";
+		}elseif($orderBy=="rating"){
+			$query.=
+				"order by rating DESC ";
+		}elseif($orderBy=="having"){
+			$query.=
+				"order by buyCount DESC ";
 		}else{
 			//donothing
 		}
@@ -53,7 +66,14 @@
 		}
 			/* bind parameters for markers */
 		//mysqli_stmt_bind_param($stmt, "sss",$videoID,$videoName,$videoType);
-		mysqli_stmt_bind_result($stmt,$videoID,$videoName,$videoTypeName,$videoTypeMode,$rentPrice,$buyPrice,$publishDate,$publisherName,$publisherCountry,$lang,$intro);
+		mysqli_stmt_bind_result(
+			$stmt,
+			$videoID,$videoName,$videoTypeName,
+			$videoTypeMode,$rentPrice,
+			$buyPrice,$publishDate,
+			$publisherName,$publisherCountry,
+			$lang,$intro,$rating,$buyCount
+		);
 		mysqli_stmt_execute($stmt);
 		while(mysqli_stmt_fetch($stmt)){
 			$temp = array();
@@ -65,27 +85,9 @@
 			$temp["publishDate"]=$publishDate;
 			$temp["publisher"]=$publisherName."/".$publisherCountry;
 			$temp["lang"]=$lang;
-			$temp["intro"]=$intro;
-			
-			$mysqli2=connect_database();
-			$rating = 0;
-			$query2=
-				"select ".
-					"avg(rating) ".
-				"from ".
-					"user_feedback ".
-				"where ".
-					"videoID= ? ";
-			$stmt2 = mysqli_prepare($mysqli2, $query2);
-			mysqli_stmt_bind_param($stmt2,"s",$videoID);
-			mysqli_stmt_bind_result($stmt2,$ratingTemp);
-			mysqli_stmt_execute($stmt2);
-			if(mysqli_stmt_fetch($stmt2)){
-				$rating = $ratingTemp;
-			}			
-			mysqli_stmt_close($stmt2);
-			$temp["rating"]=$rating;
-			
+			$temp["intro"]=$intro;	
+			$temp["rating"]=$rating;	
+			$temp["buyCount"]=$buyCount;
 			array_push($result,$temp);
 		}
 		mysqli_stmt_close($stmt);
@@ -126,7 +128,10 @@
 						echo "</intro>";		
 						echo "<rating>";
 							echo $video["rating"];
-						echo "</rating>";						
+						echo "</rating>";	
+						echo "<buyCount>";
+							echo $video["buyCount"];
+						echo "</buyCount>";						
 					echo "</video>";
 				}
 			echo "</videos>";				
@@ -139,19 +144,31 @@
 		$result=array();
 		$query=
 			"select ".
-				"A.videoID,A.videoName,C.videoTypeName,C.videoTypeMode,A.rentPrice,A.buyPrice,A.publishDate,B.publisherName,B.publisherCountry,A.lang,A.intro ".
+				"A.videoID,A.videoName,C.videoTypeName,C.videoTypeMode,A.rentPrice,A.buyPrice,A.publishDate,B.publisherName,B.publisherCountry,A.lang,A.intro, ".
+				"avg(ifnull(D.rating,0)) as rating,count(E.havingID) as buyCount ".
 			"from ".
-				"video as A, ".
+				"video as A ".
+				"left join ".
+				"user_feedback as D on D.videoID=A.videoID ". 
+				"left join ".
+				"`having` as E on E.videoID=A.videoID, ".
 				"publisher as B, ".
-				"videotype as C ".
+				"videotype as C ".				
 			"where ".
 				"B.publisherID = A.publisher and C.videoTypeID = A.videotype and A.videoName LIKE ? ";
+		$query.=" group by A.videoID ";
 		if($orderBy=="buyPrice"){
 			$query.=
 				"order by A.buyPrice";
 		}elseif($orderBy=="publishDate"){
 			$query.=
 				"order by A.publishDate";
+		}elseif($orderBy=="rating"){
+			$query.=
+				"order by rating DESC ";
+		}elseif($orderBy=="having"){
+			$query.=
+				"order by buyCount DESC ";
 		}else{
 			//donothing
 		}
@@ -161,7 +178,14 @@
 		
 			/* bind parameters for markers */
 		//mysqli_stmt_bind_param($stmt, "sss",$videoID,$videoName,$videoType);
-		mysqli_stmt_bind_result($stmt,$videoID,$videoName,$videoTypeName,$videoTypeMode,$rentPrice,$buyPrice,$publishDate,$publisherName,$publisherCountry,$lang,$intro);
+		mysqli_stmt_bind_result(
+			$stmt,
+			$videoID,$videoName,$videoTypeName,
+			$videoTypeMode,$rentPrice,
+			$buyPrice,$publishDate,
+			$publisherName,$publisherCountry,
+			$lang,$intro,$rating,$buyCount
+		);
 		mysqli_stmt_execute($stmt);
 		while(mysqli_stmt_fetch($stmt)){
 			$temp = array();
@@ -173,27 +197,9 @@
 			$temp["publishDate"]=$publishDate;
 			$temp["publisher"]=$publisherName."/".$publisherCountry;
 			$temp["lang"]=$lang;
-			$temp["intro"]=$intro;
-			
-			$mysqli2=connect_database();
-			$rating = 0;
-			$query2=
-				"select ".
-					"avg(rating) ".
-				"from ".
-					"user_feedback ".
-				"where ".
-					"videoID= ? ";
-			$stmt2 = mysqli_prepare($mysqli2, $query2);
-			mysqli_stmt_bind_param($stmt2,"s",$videoID);
-			mysqli_stmt_bind_result($stmt2,$ratingTemp);
-			mysqli_stmt_execute($stmt2);
-			if(mysqli_stmt_fetch($stmt2)){
-				$rating = $ratingTemp;
-			}			
-			mysqli_stmt_close($stmt2);
-			$temp["rating"]=$rating;
-			
+			$temp["intro"]=$intro;	
+			$temp["rating"]=$rating;	
+			$temp["buyCount"]=$buyCount;
 			array_push($result,$temp);
 		}
 		mysqli_stmt_close($stmt);
@@ -234,7 +240,10 @@
 						echo "</intro>";		
 						echo "<rating>";
 							echo $video["rating"];
-						echo "</rating>";						
+						echo "</rating>";	
+						echo "<buyCount>";
+							echo $video["buyCount"];
+						echo "</buyCount>";						
 					echo "</video>";
 				}
 			echo "</videos>";				

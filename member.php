@@ -6,8 +6,9 @@
 			"<script>".
 				"window.location.replace('/db2014/login.php');".
 			"</script>";
+	}else{
+		$userID=$_SESSION["user"]["userID"];
 	}
-	$userID=$_SESSION["user"]["userID"];
 ?>	
 <!DOCTYPE html>
 <html>

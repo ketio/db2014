@@ -28,7 +28,7 @@
 	mysqli_stmt_close($stmt);
 	
 	$now=date('Y-m-d H:i:s', time());
-	$money="";
+	$money="1000";
 	$depositID=get_id("deposit","deposit","depositID",$mysqli);
 	$query="insert into deposit(depositID,userID,time,money) values (?,?,?,?)";
 	$stmt = mysqli_prepare($mysqli, $query);
