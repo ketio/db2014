@@ -118,7 +118,7 @@
 							<img u="image" src="data/slider/psycho.png" />
 						</div>
 						<div>
-							<img u="image" src="img/slider/slider2.png" />
+							<img u="image" src="data/slider/about-time.png" />
 						</div>
 
 					</div>
