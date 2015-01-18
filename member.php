@@ -53,8 +53,8 @@
 						console.log(response);
 						$("#member_interface").empty();
 						$("#member_interface").append(
-							"<table id='wanted_list'>"+
-								"<tr>"+
+							"<table id='wanted_list' class='video_list_table'>"+
+								"<tr class='video_list_table_row video_list_table_title'> "+
 									"<td>"+
 										"圖片"+
 									"</td>"+
@@ -78,7 +78,7 @@
 							};
 							console.log(video);
 							$("#wanted_list").append(
-								"<tr id='"+video.videoID+"'>"+
+								"<tr id='"+video.videoID+"' class='video_list_table_row'>"+
 									"<td>"+
 										"<img class='video_picture' src='http://"+<?php echo '"'.$_SERVER['HTTP_HOST'].'"'; ?>+"/db2014/data/cover/"+video.videoID+".png'>"+
 									"</td>"+
@@ -109,8 +109,8 @@
 						console.log(response);
 						$("#member_interface").empty();
 						$("#member_interface").append(
-							"<table id='buy_list'>"+
-								"<tr>"+
+							"<table id='buy_list' class='video_list_table'>"+
+								"<tr class='video_list_table_row video_list_table_title'>"+
 									"<td>"+
 										"圖片"+
 									"</td>"+
@@ -138,7 +138,7 @@
 							};
 							
 							$("#buy_list").append(
-								"<tr id='"+video.videoID+"'>"+
+								"<tr id='"+video.videoID+"' class='video_list_table_row'>"+
 									"<td>"+
 										"<img class='video_picture' src='http://"+<?php echo '"'.$_SERVER['HTTP_HOST'].'"'; ?>+"/db2014/data/cover/"+video.videoID+".png'>"+
 									"</td>"+
@@ -181,8 +181,8 @@
 						console.log(response);
 						$("#member_interface").empty();
 						$("#member_interface").append(
-							"<table id='buy_list'>"+
-								"<tr>"+
+							"<table id='buy_list' class='video_list_table'>"+
+								"<tr class='video_list_table_row video_list_table_title'>"+
 									"<td>"+
 										"圖片"+
 									"</td>"+
@@ -214,7 +214,7 @@
 							};
 							console.log(video);
 							$("#buy_list").append(
-								"<tr id='"+video.videoID+"'>"+
+								"<tr id='"+video.videoID+"' class='video_list_table_row'>"+
 									"<td>"+
 										"<img class='video_picture' src='http://"+<?php echo '"'.$_SERVER['HTTP_HOST'].'"'; ?>+"/db2014/data/cover/"+video.videoID+".png'>"+
 									"</td>"+
