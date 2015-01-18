@@ -1,6 +1,6 @@
 #videolist_page{
 	background:white;
-	//height:1000px;
+	min-height:500px;
 	text-align:center;
 }
 #pageBottom{
@@ -35,10 +35,6 @@
 .text_style{
 	display:inline-block;
 	font-family: Arial, Tahoma, 微軟正黑體;
-	
-	
-
-
 }
 .video_rating_star_cell{
 	text-align:left;
