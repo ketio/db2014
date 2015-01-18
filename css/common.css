@@ -17,10 +17,13 @@ html body{
 	text-align:center;
 	margin: 0px auto;
 	height:35px;
-	width:900px;
 	background-color: rgb(81, 88, 95);
 	line-height:35px;
 	position: relative;
+}
+#content_wrapper{
+	width:1000px;
+	margin:0 auto;
 }
 #title_logo{
 	height: 60px;
@@ -68,9 +71,4 @@ a:visited {
 .float_left{
 	float:left;
 }	
-
-#content_wrapper{
-	width:900px;
-	margin:0 auto;
-}
 

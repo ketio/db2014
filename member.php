@@ -79,13 +79,13 @@
 							console.log(video);
 							$("#wanted_list").append(
 								"<tr id='"+video.videoID+"' class='video_list_table_row'>"+
-									"<td>"+
+									"<td class='video_list_table_cell'>"+
 										"<img class='video_picture' src='http://"+<?php echo '"'.$_SERVER['HTTP_HOST'].'"'; ?>+"/db2014/data/cover/"+video.videoID+".png'>"+
 									"</td>"+
-									"<td>"+
+									"<td class='video_list_table_cell'>"+
 										video.videoName+
 									"</td>"+
-									"<td>"+
+									"<td class='video_list_table_cell'>"+
 										video.time+
 									"</td>"+
 								"</tr>"
@@ -139,16 +139,16 @@
 							
 							$("#buy_list").append(
 								"<tr id='"+video.videoID+"' class='video_list_table_row'>"+
-									"<td>"+
+									"<td class='video_list_table_cell'>"+
 										"<img class='video_picture' src='http://"+<?php echo '"'.$_SERVER['HTTP_HOST'].'"'; ?>+"/db2014/data/cover/"+video.videoID+".png'>"+
 									"</td>"+
-									"<td>"+
+									"<td class='video_list_table_cell'>"+
 										video.videoName+
 									"</td>"+
-									"<td>"+
+									"<td class='video_list_table_cell'>"+
 										video.time+
 									"</td>"+
-									"<td>"+
+									"<td class='video_list_table_cell'>"+
 										"<div id='Rating_"+video.videoID+"' data-number='"+video.rating+"' >"+
 										
 										"</div>"+
@@ -215,19 +215,19 @@
 							console.log(video);
 							$("#buy_list").append(
 								"<tr id='"+video.videoID+"' class='video_list_table_row'>"+
-									"<td>"+
+									"<td class='video_list_table_cell'>"+
 										"<img class='video_picture' src='http://"+<?php echo '"'.$_SERVER['HTTP_HOST'].'"'; ?>+"/db2014/data/cover/"+video.videoID+".png'>"+
 									"</td>"+
-									"<td>"+
+									"<td class='video_list_table_cell'>"+
 										video.videoName+
 									"</td>"+
-									"<td>"+
+									"<td class='video_list_table_cell'>"+
 										video.startTime+
 									"</td>"+
-									"<td>"+
+									"<td class='video_list_table_cell'>"+
 										video.endTime+
 									"</td>"+
-									"<td>"+
+									"<td class='video_list_table_cell'>"+
 										"<div id='Rating_"+video.videoID+"' data-number='"+video.rating+"' >"+
 										
 										"</div>"+
