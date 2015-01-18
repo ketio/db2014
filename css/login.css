@@ -43,3 +43,7 @@
 	text-align: right;
 	line-height: 200%;
 }
+#login_interface a{
+	color:white;
+	text-decoration: none;
+}  

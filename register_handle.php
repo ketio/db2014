@@ -27,9 +27,18 @@
 	mysqli_stmt_execute($stmt);
 	mysqli_stmt_close($stmt);
 	
+	$now=date('Y-m-d H:i:s', time());
+	$money="";
+	$depositID=get_id("deposit","deposit","depositID",$mysqli);
+	$query="insert into deposit(depositID,userID,time,money) values (?,?,?,?)";
+	$stmt = mysqli_prepare($mysqli, $query);
+	
+	mysqli_stmt_bind_param($stmt,"ssss",$depositID,$userID,$now,$money);
+	mysqli_stmt_execute($stmt);
+	mysqli_stmt_close($stmt);	
 	echo
 		"<script>".
-			"window.location.replace('/db2014/index.php');".
+			"window.location.replace('/db2014/register_success.php');".
 		"</script>";
 	
 ?>

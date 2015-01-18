@@ -42,7 +42,16 @@ $(document).ready(function(){
 			<div class="header1_item float_right">
 				<?php echo $_SESSION["user"]["userName"]; ?> ，你好！ &nbsp; 
 			</div>	
-		<?php } ?>		
+		<?php } else {?>	
+			<div class="header1_item float_right">
+				<a href="login.php">立即登入</a>
+			</div>
+			<div class="header1_item float_right">&nbsp;|&nbsp;</div>
+			<div class="header1_item float_right">
+				<a href="register.php">註冊會員</a>
+			</div>
+			<div class="header1_item float_right">&nbsp;|&nbsp;</div>		
+		<?php }?>			
 		
 		<div id="header_search_block">
 			<input id="header_search_input" type="text" name="fname" value="請輸入影片名稱">
@@ -63,10 +72,6 @@ $(document).ready(function(){
 		<div class="header2_item">|</div>
 		<div class="header2_item">
 			<a href="videolist.php?vediotypename=tvseries">影集</a>
-		</div>
-		<div class="header2_item">|</div>
-		<div class="header2_item">	
-			<a href="rank.php">排行榜</a>
 		</div>
 		<div class="header2_item">|</div>
 	</div>

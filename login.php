@@ -39,15 +39,17 @@
 						</div>
 						<div class="text_css">
 							PASSWORD | 會員密碼
-							<input type="text" name="password"> </input>
+							<input type="password" name="password"> </input>
 						</div>
 						<input type="hidden" name="mode" value="login"> </input>
 						<div id="login_text" class="login_text">
 							登入
 						</div>
-						<div id="goto_register" class="login_text">
-							申請會員
-						</div>
+						<a href="register.php">
+							<div id="goto_register" class="login_text">
+								申請會員
+							</div>
+						</a>
 					</form>
 				</div>
 				
