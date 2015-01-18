@@ -108,5 +108,8 @@ html body{
 	position:absolute;
 	left:160px;
 	display:inline-block;
+}
 
+#logout{
+	cursor:pointer;
 }
