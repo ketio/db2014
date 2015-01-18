@@ -96,7 +96,7 @@
 				include_once "header.php"; 
 			?>	
 			<div id="main_page">
-				<div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 600px; height: 300px; overflow: hidden; ">
+				<div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 600px; height: 360px; overflow: hidden; ">
 
 					<!-- Loading Screen -->
 					<div u="loading" style="position: absolute; top: 0px; left: 0px;">
@@ -113,19 +113,14 @@
 						-->
 					</div>
 					<!-- Slides Container -->
-					<div u="slides" style="position: absolute; left: 0px; top: 0px; width: 600px; height: 300px; overflow: hidden;">
+					<div u="slides" style="position: absolute; left: 0px; top: 0px; width: 600px; height: 360px; overflow: hidden;">
 						<div>
-							<img u="image" src="img/slider/slider1.png" />
+							<img u="image" src="data/slider/psycho.png" />
 						</div>
 						<div>
 							<img u="image" src="img/slider/slider2.png" />
 						</div>
-						<div>
-							<img u="image" src="img/slider/_0006397.png" />
-						</div>
-						<div>
-							<img u="image" src="img/guide.png" />
-						</div>
+
 					</div>
 					<!-- bullet navigator container -->
 					<div u="navigator" class="jssorb05" style="position: absolute; bottom: 16px; right: 6px;">
