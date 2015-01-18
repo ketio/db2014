@@ -15,7 +15,11 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>NTUIM CLOULD THEATER雲端影城</title>
 	<script type="text/javascript" src="system/js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="system/js/jRating/jRating.jquery.js"></script>
 	<link type="text/css" rel="stylesheet" href="css/member.css"/>
+	<link type="text/css" rel="stylesheet" href="system/js/jRating/jRating.jquery.css"/>
+
+	
 	
 	<script>
 		var userID=<?php echo "'".$userID."'"; ?>;
@@ -116,6 +120,9 @@
 									"<td>"+
 										"加入時間"+
 									"</td>"+
+									"<td>"+
+										"評價"+
+									"</td>"+
 								"</tr>"+
 							"</table>"					
 						);
@@ -128,7 +135,7 @@
 								videoName:$(this).children("videoName").text(),
 								time:$(this).children("time").text()
 							};
-							console.log(video);
+							
 							$("#buy_list").append(
 								"<tr id='"+video.videoID+"'>"+
 									"<td>"+
@@ -140,10 +147,19 @@
 									"<td>"+
 										video.time+
 									"</td>"+
+									"<td>"+
+										"<div class='videoRating' videoID='"+video.videoID+"' videoRate='' >"+
+										
+										"</div>"+
+									"</td>"+
 								"</tr>"
 							);
 						
-						});						
+						});		
+
+						$('.videoRating').jRating();
+
+						
 					}			
 				});
 			}
