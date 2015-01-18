@@ -87,12 +87,23 @@
 								"<div class='videolist_item_buyPrice'>租金 "+video.rentPrice+"</div>"+
 							"</div>"
 						);	
-
-						$("#Rating_"+video.videoID).raty({
-							path:"system/js/raty/lib/images",
-							readOnly: true,
-							score:video.rating,
-						});		
+						
+						if(video.rating==0){
+							$("#Rating_"+video.videoID).append(
+								"<img alt='1' src='system/js/raty/lib/images/star-no.png' title='regular'>"+
+								"<img alt='2' src='system/js/raty/lib/images/star-no.png' title='regular'>"+
+								"<img alt='3' src='system/js/raty/lib/images/star-no.png' title='regular'>"+
+								"<img alt='4' src='system/js/raty/lib/images/star-no.png' title='regular'>"+
+								"<img alt='5' src='system/js/raty/lib/images/star-no.png' title='regular'>"							
+							);
+						}
+						else{
+							$("#Rating_"+video.videoID).raty({
+								path:"system/js/raty/lib/images",
+								readOnly: true,
+								score:video.rating,
+							});		
+						}
 					});
 				}
 				
