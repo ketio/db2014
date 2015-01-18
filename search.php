@@ -24,17 +24,17 @@
 		$(document).ready(function () {
 			$(".orderByItem[orderByValue='"+orderBy+"']").addClass("orderByItem_choose");
 		
-			getVideoList(videoTypeName,"default",orderBy);
+			getVideoList(keyword,orderBy);
 			
 			$(".orderByItem").click(function(){
 				$(".orderByItem[orderByValue='"+orderBy+"']").removeClass("orderByItem_choose");				
 				orderBy = $(this).attr("orderByValue");
 				$(this).addClass("orderByItem_choose");
-				getVideoList(videoTypeName,"default",orderBy);
+				getVideoList(keyword,orderBy);
 			});
 		});
 				
-		function getVideoList(videoTypeName,videoTypeMode,orderBy){
+		function getVideoList(keyword,orderBy){
 					
 			$.ajax({
 				async: true,

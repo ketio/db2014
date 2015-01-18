@@ -11,8 +11,10 @@
 	if(isset($_POST["mode"]))	
 		$mode=$_POST["mode"];	
 	if(isset($_POST["videoID"]))	
-		$videoID=$_POST["videoID"];			
-		
+		$videoID=$_POST["videoID"];	
+	if(isset($_POST["keyword"]))	
+		$keyword=$_POST["keyword"];				
+
 	$mysqli=connect_database();
 
 	if($mode=="list"){
@@ -130,7 +132,10 @@
 			echo "</videos>";				
 		echo "</response>";
 	}
-	if($mode=="search"){
+	elseif($mode=="search"){
+	
+	
+		$keyword = "%".$keyword."%";
 		$result=array();
 		$query=
 			"select ".
@@ -140,11 +145,7 @@
 				"publisher as B, ".
 				"videotype as C ".
 			"where ".
-				"B.publisherID = A.publisher and C.videoTypeID = A.videotype and C.videoTypeName= ? ";
-		if($videoTypeMode!="default"){
-			$query.=
-				" and C.videoTypeMode= ? ";
-		}
+				"B.publisherID = A.publisher and C.videoTypeID = A.videotype and A.videoName LIKE ? ";
 		if($orderBy=="buyPrice"){
 			$query.=
 				"order by A.buyPrice";
@@ -155,15 +156,9 @@
 			//donothing
 		}
 		
-
 		$stmt = mysqli_prepare($mysqli, $query);
-
-		if($videoTypeMode=="default"){
-			mysqli_stmt_bind_param($stmt, "s",$videoTypeName);
-		}
-		elseif($videoTypeMode!="default"){
-			mysqli_stmt_bind_param($stmt, "ss",$videoTypeName,$videoTypeMode);
-		}
+		mysqli_stmt_bind_param($stmt,"s",$keyword);
+		
 			/* bind parameters for markers */
 		//mysqli_stmt_bind_param($stmt, "sss",$videoID,$videoName,$videoType);
 		mysqli_stmt_bind_result($stmt,$videoID,$videoName,$videoTypeName,$videoTypeMode,$rentPrice,$buyPrice,$publishDate,$publisherName,$publisherCountry,$lang,$intro);

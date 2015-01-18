@@ -4,7 +4,9 @@ $(document).ready(function(){
 	$("#logout").click(function(){
 		$("#logout_form").submit();			
 	});
-	
+	$("#header_search_button").click(function(){
+		$("#header_search_form").submit();			
+	});
 	
 	$("#header_search_input").focus(function(){
 		if($(this).val()=="請輸入影片名稱"){
@@ -54,10 +56,12 @@ $(document).ready(function(){
 		<?php }?>			
 		
 		<div id="header_search_block">
-			<input id="header_search_input" type="text" name="fname" value="請輸入影片名稱">
-			<div id="header_search_button">
-				SEARCH
-			</div>
+			<form id="header_search_form" action="search.php" method="GET" >
+				<input id="header_search_input" type="text" name="keyword" value="請輸入影片名稱">
+				<div id="header_search_button">
+					SEARCH
+				</div>
+			</form>
 		</div>
 	</div>
 	<div id="header2">
