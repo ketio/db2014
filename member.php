@@ -264,21 +264,19 @@
 						$("#member_interface").append(
 							"<table id='member_data_table'>"+
 								"<tr>"+
-									"<td>"+
-										"帳號名稱"+
-									"</td>"+
-									"<td>"+
-										"使用者名稱"+
-									"</td>"+
-									"<td>"+
-										"性別"+
-									"</td>"+
-									"<td>"+
-										"生日"+
-									"</td>"+
-									"<td>"+
-										"帳戶餘額"+
-									"</td>"+
+									"<td>帳號名稱</td><td id='member_account'></td>"+
+								"</tr>"+	
+								"<tr>"+								
+									"<td>使用者名稱</td><td id='member_userName'></td>"+
+								"</tr>"+	
+								"<tr>"+
+									"<td>性別</td><td id='member_gender'></td>"+
+								"</tr>"+	
+								"<tr>"+
+									"<td>生日</td><td id='member_birthday'></td>"+
+								"</tr>"+	
+								"<tr>"+
+									"<td>帳戶餘額</td><td id='member_depositSum'><td></td>"+
 								"</tr>"+
 							"</table>"					
 						);
@@ -296,25 +294,11 @@
 								
 							};
 							console.log(member);
-							$("#member_data_table").append(
-								"<tr id='"+member.userID+"'>"+
-									"<td>"+
-										member.account+
-									"</td>"+
-									"<td>"+
-										member.userName+
-									"</td>"+
-									"<td>"+
-										member.gender+
-									"</td>"+
-									"<td>"+
-										member.birthday+
-									"</td>"+
-									"<td>"+
-										member.depositSum+
-									"</td>"+
-								"</tr>"
-							);
+							$("#member_account").append(member.account);
+							$("#member_userName").append(member.userName);
+							$("#member_gender").append(member.gender);
+							$("#member_birthday").append(member.birthday.substr(0,10));
+							$("#member_depositSum").append(member.depositSum);
 						
 						});						
 					}			
