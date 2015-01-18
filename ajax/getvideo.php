@@ -64,6 +64,26 @@
 			$temp["publisher"]=$publisherName."/".$publisherCountry;
 			$temp["lang"]=$lang;
 			$temp["intro"]=$intro;
+			
+			$mysqli2=connect_database();
+			$rating = 0;
+			$query2=
+				"select ".
+					"avg(rating) ".
+				"from ".
+					"user_feedback ".
+				"where ".
+					"videoID= ? ";
+			$stmt2 = mysqli_prepare($mysqli2, $query2);
+			mysqli_stmt_bind_param($stmt2,"s",$videoID);
+			mysqli_stmt_bind_result($stmt2,$ratingTemp);
+			mysqli_stmt_execute($stmt2);
+			if(mysqli_stmt_fetch($stmt2)){
+				$rating = $ratingTemp;
+			}			
+			mysqli_stmt_close($stmt2);
+			$temp["rating"]=$rating;
+			
 			array_push($result,$temp);
 		}
 		mysqli_stmt_close($stmt);
@@ -72,9 +92,6 @@
 			echo "<result>";
 				echo "取得成功";
 			echo "</result>";	
-			echo "<query>";
-				echo $query;
-			echo "</query>";
 			echo "<videos>";
 				foreach($result as $video){
 					echo "<video>";
@@ -104,7 +121,10 @@
 						echo "</lang>";		
 						echo "<intro>";
 							echo $video["intro"];
-						echo "</intro>";							
+						echo "</intro>";		
+						echo "<rating>";
+							echo $video["rating"];
+						echo "</rating>";						
 					echo "</video>";
 				}
 			echo "</videos>";				

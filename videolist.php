@@ -12,6 +12,8 @@
 	<title>NTUIM CLOULD THEATER雲端影城</title>
 	<script src="system/js/jquery-1.11.2.min.js"></script>
 	<link type="text/css" rel="stylesheet" href="css/videolist.css"/>
+	<script type="text/javascript" src="system/js/raty/lib/jquery.raty.js"></script>
+	<link type="text/css" rel="stylesheet" href="system/js/raty/lib/jquery.raty.css"/>
 	
 	<script>
 		var videoTypeName = <?php echo "'".$videoTypeName."'";  ?>;
@@ -68,11 +70,13 @@
 							publishDate:$(this).children("publishDate").text(),
 							publisher:$(this).children("publisher").text(),
 							lang:$(this).children("lang").text(),
-							intro:$(this).children("intro").text()
+							intro:$(this).children("intro").text(),
+							rating:$(this).children("rating").text()
 						}
 						
 						$("#videolist_interface").append(
 							"<div class='videolist_item'>"+
+								"<div id='Rating_"+video.videoID+"' data-number='"+video.rating+"' ></div>"+
 								"<div class='videolist_item_image_cell'>"+
 									"<a href='video.php?videoid="+video.videoID+"'>"+
 										"<img class='videolist_item_image' src='http://"+<?php echo '"'.$_SERVER['HTTP_HOST'].'"'; ?>+"/db2014/data/cover/"+video.videoID+".png'>"+
@@ -82,7 +86,13 @@
 								"<div class='videolist_item_rentPrice'>售價 "+video.buyPrice+"</div>"+
 								"<div class='videolist_item_buyPrice'>租金 "+video.rentPrice+"</div>"+
 							"</div>"
-						);				
+						);	
+
+						$("#Rating_"+video.videoID).raty({
+							path:"system/js/raty/lib/images",
+							readOnly: true,
+							score:video.rating,
+						});		
 					});
 				}
 				

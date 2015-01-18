@@ -16,8 +16,8 @@
 	<title>NTUIM CLOULD THEATER雲端影城</title>
 	<script type="text/javascript" src="system/js/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="system/js/raty/lib/jquery.raty.js"></script>
-	<link type="text/css" rel="stylesheet" href="css/member.css"/>
 	<link type="text/css" rel="stylesheet" href="system/js/raty/lib/jquery.raty.css"/>
+	<link type="text/css" rel="stylesheet" href="css/member.css"/>
 
 	
 	
