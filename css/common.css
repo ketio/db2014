@@ -9,19 +9,17 @@ html body{
 #header1{
 	//text-align:right;
 	margin: 0px auto;
-	height:70px;
-	background-color: rgb(202, 194, 194);
+	height:85px;
+	background-color: rgb(200, 208, 215);
 	position:relative;
 }
 #header2{
 	text-align:center;
 	margin: 0px auto;
-	height:30px;
+	height:35px;
 	width:900px;
-	background-color: white;
-	padding-top:10px;
-	padding-bottom:10px;
-	line-height:30px;
+	background-color: rgb(81, 88, 95);
+	line-height:35px;
 	position: relative;
 }
 #title_logo{
@@ -36,13 +34,33 @@ html body{
 }	
 .header1_logo{
 	display:inline-block; 
-	height:70px;	
+	margin-top: 3px;
+	margin-left: 4px;
+	height:70px;
 }	
 .header2_item{
 	display:inline-block; 
 	margin: 0px auto;
 	font-family: 微軟正黑體;
+	color:white;
 }	
+
+.header2_item a{
+	color:white;
+	text-decoration: none;
+}   
+.header2_item a:link {color:white}　　　　//宣告連結顏色
+a:visited {
+	color:red;
+}　   　 //訪問過連結顏色
+.header2_item a:active {
+	color:blue;
+	font-weight: bold;
+}　　    //執行中連結顏色
+.header2_item a:hover {
+	color:yellow;
+	text-decoration:underline;
+}
 
 .float_right{
 	float:right;
