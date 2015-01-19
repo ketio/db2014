@@ -9,9 +9,8 @@
 	height: 35px;
 	line-height:35px;
 	padding-top:5px;
-	padding-bottom: 5px;
+	padding-bottom: 20px;
 }
-
 .member_option_item{
 	display:inline-block;
 	cursor:pointer;
@@ -22,7 +21,6 @@
 #member_interface{
 	width:100%;
 	text-align:center;
-	
 }
 .video_picture{
 	width:80px;
@@ -31,13 +29,10 @@
 .video_list_table{
 	margin:0px auto;
 }
-
 .video_list_table_row{
-	
 }
 .video_list_table_title{
-	background-color: rgb(209, 221, 232);
-	
+	background-color: rgb(209, 221, 232);	
 }
 .video_list_table_title_img{
 	border-bottom:2px dashed gray;
@@ -58,5 +53,50 @@
 	border-bottom:2px dashed gray;
 }
 #member_data_table{
+	width: 500px;
 	margin:0px auto;
+	padding-top: 60px;
+	//border-collapse:collapse;
+}
+#member_data_table_memberData{
+	background-color: black;
+	color:white;
+	height: 28px;
+	line-height:28px;
+	font-size:17px;
+}
+.member_data_table_row{
+	height: 30px;
+	line-height:30px;
+	font-size:14px;
+}
+.member_data_table_row_odd{
+	
+}
+.member_data_table_row_even{
+	background-color:rgb(224, 229, 234);
+}
+.member_data_table_col_fst{
+	text-align:right;
+	width: 145px;
+	padding-right: 15px;
+}
+.member_data_table_col_snd{
+	
+}
+#member_interface_div{
+	width: 500px;
+	margin: 0px auto;
+}
+#button{
+	background-color: black; 
+	color:white;
+	width: 160px;
+	margin: 0px auto;
+	margin-top: 30px;
+	height: 25px;
+	line-height:25px;
+	font-size: 15px;
+	text-align:center;
+	cursor:pointer;
 }

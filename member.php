@@ -231,7 +231,6 @@
 									"</td>"+
 									"<td class='video_list_table_cell'>"+
 										"<div id='Rating_"+video.videoID+"' data-number='"+video.rating+"' >"+
-										
 										"</div>"+
 									"</td>"+
 								"</tr>"
@@ -263,23 +262,36 @@
 						console.log(response);
 						$("#member_interface").empty();
 						$("#member_interface").append(
-							"<table id='member_data_table'>"+
-								"<tr>"+
-									"<td>帳號名稱</td><td id='member_account'></td>"+
-								"</tr>"+	
-								"<tr>"+								
-									"<td>使用者名稱</td><td id='member_userName'></td>"+
-								"</tr>"+	
-								"<tr>"+
-									"<td>性別</td><td id='member_gender'></td>"+
-								"</tr>"+	
-								"<tr>"+
-									"<td>生日</td><td id='member_birthday'></td>"+
-								"</tr>"+	
-								"<tr>"+
-									"<td>帳戶餘額</td><td id='member_depositSum'><td></td>"+
-								"</tr>"+
-							"</table>"					
+							"<div id='member_interface_div'>"+
+								"<table id='member_data_table'>"+
+									"<tr>"+
+										"<th colspan=2 id='member_data_table_memberData'>會員資料</th>"+
+									"</tr>"+
+									"<tr class='member_data_table_row member_data_table_row_odd'>"+
+										"<td class='member_data_table_col_fst'>帳號名稱</td>"+
+										"<td id='member_account' class='member_data_table_col_snd'></td>"+
+									"</tr>"+	
+									"<tr class='member_data_table_row member_data_table_row_even'>"+								
+										"<td class='member_data_table_col_fst'>使用者名稱</td>"+
+										"<td id='member_userName' class='member_data_table_col_snd'></td>"+
+									"</tr>"+	
+									"<tr class='member_data_table_row member_data_table_row_odd'>"+
+										"<td class='member_data_table_col_fst'>性別"+
+										"</td><td id='member_gender' class='member_data_table_col_snd'></td>"+
+									"</tr>"+	
+									"<tr class='member_data_table_row member_data_table_row_even'>"+
+										"<td class='member_data_table_col_fst'>生日</td>"+
+										"<td id='member_birthday' class='member_data_table_col_snd'></td>"+
+									"</tr>"+	
+									"<tr class='member_data_table_row member_data_table_row_odd'>"+
+										"<td class='member_data_table_col_fst'>帳戶餘額</td>"+
+										"<td id='member_depositSum' class='member_data_table_col_snd'><td></td>"+
+									"</tr>"+
+								"</table>"+
+								"<div id='button'>"+
+									"更改會員資料"+
+								"</div>"+
+							"</div>"
 						);
 									
 
