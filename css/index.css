@@ -21,11 +21,11 @@
 	background-size: 300px 300px;
 	cursor:pointer;
 	
-	-webkit-filter: brightness(1.0);
+	-webkit-filter: brightness(0.9);
 }
 .recommand_image:hover{
 
-	-webkit-filter: brightness(1.3);
+	-webkit-filter: brightness(1.2);
 }
 
 #recommand_image_1{

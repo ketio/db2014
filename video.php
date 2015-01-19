@@ -119,7 +119,8 @@
 							else if(result=="FAIL"){
 								$("#buyDialog").empty();
 								$("#buyDialog").append(
-									"<div>"+$(response).find("reason").text()+"</div>"								
+									"<div>"+$(response).find("reason").text()+"</div>"+
+									"<div class='dialogCancle' >取消</div>"										
 								);
 							}
 							getVideo(videoID);
@@ -192,8 +193,10 @@
 								});						
 							}
 							else if(result=="FAIL"){
-								$("#buyDialog").append(
-									"<div>"+$(response).find("reason").text()+"</div>"								
+								$("#rentDialog").empty();
+								$("#rentDialog").append(
+									"<div>"+$(response).find("reason").text()+"</div>"+
+									"<div class='dialogCancle' >取消</div>"								
 								);
 							}
 							getVideo(videoID);
