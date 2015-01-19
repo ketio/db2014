@@ -193,8 +193,42 @@
 					<div id="news_title">
 						最新消息 &nbsp;<span id="new_a ">NEWS</span>
 					</div>
-					<div id="news_content">
-						慶祝網站成立，加入會員即享<span id="new_aaa">1000元</span>購物金！
+					<div id="newsTable_interface">
+						<table id="newsTable">
+							<tr>
+								<td class="news_table_mark news_table_title"></td>
+								<td class="news_table_date news_table_title">公告日期</td>
+								<td class="news_table_content news_table_title">公告內容</td>
+							</tr>
+							<tr>
+								<td class="news_table_mark"><div class="mark_new">[ NEW ]</div></td>
+								<td class="news_table_date"><div>2015/01/19</div></td>
+								<td class="news_table_content">
+									<div>
+										即時評價系統上線囉!!!
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="news_table_mark"><div class="mark_new">[ NEW ]</div></td>
+								<td class="news_table_date"><div>2015/01/16</div></td>
+								<td class="news_table_content">
+									<div id="news_content">
+										慶祝網站成立，加入會員即享<span id="new_aaa">1000元</span>購物金！
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="news_table_mark"></td>
+								<td class="news_table_date"><div>2014/12/25</div></td>
+								<td class="news_table_content">
+									<div >
+										網站規劃中
+									</div>
+								</td>
+							</tr>
+						</table>
+					
 					</div>
 				</div>
 			</div>
