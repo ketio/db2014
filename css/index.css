@@ -1,5 +1,5 @@
 #main_page{
-	background:white;
+	background:rgb(37, 37, 37);
 	height:1000px;
 	padding-top:7px;
 }
@@ -59,19 +59,23 @@
 #news_title{
 	width: 200px;
 	height: 30px;
-	background-color: rgb(228, 228, 228);
+	background-color: rgb(116, 116, 116);
+	box-shadow:2px 0px 2px 3px rgb(116, 116, 116);
 	padding-top: 20px;
 	padding-right: 15px;
 	padding-bottom: 3px;
 	text-align: right;
 	text-decoration: underline;
 	font-size: 25px;
-	font-family: Verdana, Geneva, sans-serif;
+	font-family: Verdana, Geneva, sans-serif, 微軟正黑體;
 	font-weight: bold;
+	color:white;
 }
 #news_content{
+	margin-top: 10px;
 	margin-left:100px;
-	font-size: 15pt;
+	font-size: 14pt;
+	color: rgb(217, 217, 219);
 }
 #new_aaa{
 
