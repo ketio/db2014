@@ -289,27 +289,27 @@
 												"<td class='video_inner_table_cell'>"+video.videoName+"</td>"+
 											"</tr>"+
 											"<tr class='video_inner_table_row'>"+
-												"<td class='video_inner_table_cell video_inner_table_title'>影片名稱</td>"+
+												"<td class='video_inner_table_title'>影片類型</td>"+
 												"<td class='video_inner_table_cell'>"+video.videoType+"</td>"+
 											"</tr>"+
 											"<tr class='video_inner_table_row'>"+
-												"<td class='video_inner_table_cell video_inner_table_title'>購買價格</td>"+
+												"<td class='video_inner_table_title'>購買價格</td>"+
 												"<td class='video_inner_table_cell'>"+video.buyPrice+"</td>"+
 											"</tr>"+
 											"<tr class='video_inner_table_row'>"+
-												"<td class='video_inner_table_cell video_inner_table_title'>租借價格</td>"+
+												"<td class='video_inner_table_title'>租借價格</td>"+
 												"<td class='video_inner_table_cell'>"+video.rentPrice+"</td>"+
 											"</tr>"+										
 											"<tr class='video_inner_table_row'>"+
-												"<td class='video_inner_table_cell video_inner_table_title'>出版</td>"+
+												"<td class='video_inner_table_title'>出版</td>"+
 												"<td class='video_inner_table_cell'>"+video.publisher+"</td>"+
 											"</tr>"+
 											"<tr class='video_inner_table_row'>"+
-												"<td class='video_inner_table_cell video_inner_table_title'>出版日期</td>"+
+												"<td class='video_inner_table_title'>出版日期</td>"+
 												"<td class='video_inner_table_cell'>"+video.publishDate.substr(0,10)+"</td>"+
 											"</tr>"+										
 											"<tr class='video_inner_table_row'>"+
-												"<td class='video_inner_table_cell video_inner_table_title'>影片語言</td>"+
+												"<td class='video_inner_table_title'>影片語言</td>"+
 												"<td class='video_inner_table_cell'>"+video.lang+"</td>"+
 											"</tr>"+
 										"</table>"+
@@ -334,7 +334,7 @@
 						else if(isLogin==1){
 						
 							if(video.isHaving>=1){
-								$("#buyVideo").html("您已經購買此商品");	
+								$("#buyVideo").html("商品已購買");	
 							}
 							else{								
 								$("#buyVideo").click(function(){
@@ -345,7 +345,7 @@
 							}
 							
 							if(video.isRent>=1){
-								$("#rentVideo").html("你已經承租此商品");
+								$("#rentVideo").html("商品已承租");
 							}
 							else{
 								$("#rentVideo").click(function(){
@@ -356,7 +356,7 @@
 							}
 							
 							if(video.isPut>=1){
-								$("#putVideo").html("已將此商品放入清單");
+								$("#putVideo").html("商品已列入清單");
 							}
 							else{
 								$("#putVideo").click(function(){

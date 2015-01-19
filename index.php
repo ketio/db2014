@@ -165,7 +165,7 @@
 				</div>
 				<div id="news_interface">
 					<div id="news_title">
-						最新消息<span id="new_a ">New</span>
+						最新消息 &nbsp;<span id="new_a ">NEWS</span>
 					</div>
 					<div id="news_content">
 						慶祝網站成立，加入會員即享<span id="new_aaa">1000元</span>購物金！
