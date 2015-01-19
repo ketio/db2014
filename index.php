@@ -130,6 +130,15 @@
 						<!-- Slides Container -->
 						<div u="slides" style="position: absolute; left: 0px; top: 0px; width: 600px; height: 360px; overflow: hidden;">
 							<div>
+								<img u="image" src="data/slider/mockingjay_banner.jpg" />
+							</div>
+							<div>
+								<img u="image" src="data/slider/MILLI1.png" />
+							</div>
+							<div>
+								<img u="image" src="data/slider/mikasa.png" />
+							</div>
+							<div>
 								<img u="image" src="data/slider/psycho.png" />
 							</div>
 							<div>
