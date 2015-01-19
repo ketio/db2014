@@ -37,6 +37,7 @@
 				close: function(){
 					$(".mask").css({"display":"none"});
 				},
+				width:"400px",
 			});
 			$("#rentDialog").dialog({
 				autoOpen: false,
@@ -44,6 +45,7 @@
 				close: function(){
 					$(".mask").css({"display":"none"});
 				},
+				width:"400px",
 			});
 			$("#putDialog").dialog({
 				autoOpen: false,
@@ -51,6 +53,7 @@
 				close: function(){
 					$(".mask").css({"display":"none"});
 				},
+				width:"400px",
 			});
 			
 			$(".dialogCancle").click(function(){
@@ -75,32 +78,32 @@
 							mode:"buy",
 						},
 						success: function(response){
-							console.log(response);
+							
 							var result=$(response).find("result").text()
 							if(result=="SUCCESS"){
 								$("#buyDialog").empty();
+								$("#buyDialog").dialog({title:"購買成功"});
 								$("#buyDialog").append(
-									"購買成功"+
-									"<table>"+
+									"<table class='dialogTable'>"+
 										"<tr>"+
-											"<td>會員名稱</td>"+
-											"<td>"+$(response).find("userName").text()+"</td>"+
+											"<td class='dialogTableCell dialogTableCellTitle'>會員名稱</td>"+
+											"<td class='dialogTableCell dialogTableCellContent'>"+$(response).find("userName").text()+"</td>"+
 										"</tr>"+
 										"<tr>"+
-											"<td>原儲值金額</td>"+
-											"<td>"+$(response).find("depositSum").text()+"</td>"+
+											"<td class='dialogTableCell dialogTableCellTitle'>原儲值金額</td>"+
+											"<td class='dialogTableCell dialogTableCellContent'>"+$(response).find("depositSum").text()+"</td>"+
 										"</tr>"+
 										"<tr>"+
-											"<td>購買商品</td>"+
-											"<td>"+$(response).find("videoName").text()+"</td>"+
+											"<td class='dialogTableCell dialogTableCellTitle'>購買商品</td>"+
+											"<td class='dialogTableCell dialogTableCellContent'>"+$(response).find("videoName").text()+"</td>"+
 										"</tr>"+
 										"<tr>"+
-											"<td>商品價錢</td>"+
-											"<td>"+$(response).find("buyPrice").text()+"</td>"+
+											"<td class='dialogTableCell dialogTableCellTitle'>商品價錢</td>"+
+											"<td class='dialogTableCell dialogTableCellContent'>"+$(response).find("buyPrice").text()+"</td>"+
 										"</tr>"+
 										"<tr>"+
-											"<td>剩餘儲值金額</td>"+
-											"<td>"+$(response).find("retainDeposit").text()+"</td>"+
+											"<td class='dialogTableCell dialogTableCellTitle'>剩餘儲值金額</td>"+
+											"<td class='dialogTableCell dialogTableCellContent'>"+$(response).find("retainDeposit").text()+"</td>"+
 										"</tr>"+		
 									"</table>"+
 									"<div class='transactionConfirm dialogConfirm'>確認</div>"
@@ -147,34 +150,34 @@
 								$("#rentDialog").empty();
 								$("#rentDialog").append(
 									"租借成功"+
-									"<table>"+
+									"<table class='dialogTable'>"+
 										"<tr>"+
-											"<td>會員名稱</td>"+
-											"<td>"+$(response).find("userName").text()+"</td>"+
+											"<td class='dialogTableCell dialogTableCellTitle'>會員名稱</td>"+
+											"<td class='dialogTableCell dialogTableCellContent'>"+$(response).find("userName").text()+"</td>"+
 										"</tr>"+
 										"<tr>"+
-											"<td>原儲值金額</td>"+
-											"<td>"+$(response).find("depositSum").text()+"</td>"+
+											"<td class='dialogTableCell dialogTableCellTitle'>原儲值金額</td>"+
+											"<td class='dialogTableCell dialogTableCellContent'>"+$(response).find("depositSum").text()+"</td>"+
 										"</tr>"+
 										"<tr>"+
-											"<td>租借商品</td>"+
-											"<td>"+$(response).find("videoName").text()+"</td>"+
+											"<td class='dialogTableCell dialogTableCellTitle'>租借商品</td>"+
+											"<td class='dialogTableCell dialogTableCellContent'>"+$(response).find("videoName").text()+"</td>"+
 										"</tr>"+
 										"<tr>"+
-											"<td>租借時間</td>"+
-											"<td>"+$(response).find("startTime").text().substr(0,10)+"</td>"+
+											"<td class='dialogTableCell dialogTableCellTitle'>租借時間</td>"+
+											"<td class='dialogTableCell dialogTableCellContent'>"+$(response).find("startTime").text().substr(0,10)+"</td>"+
 										"</tr>"+
 										"<tr>"+
-											"<td>到期時間</td>"+
-											"<td>"+$(response).find("endTime").text().substr(0,10)+"</td>"+
+											"<td class='dialogTableCell dialogTableCellTitle'>到期時間</td>"+
+											"<td class='dialogTableCell dialogTableCellContent'>"+$(response).find("endTime").text().substr(0,10)+"</td>"+
 										"</tr>"+
 										"<tr>"+
-											"<td>商品價錢</td>"+
-											"<td>"+$(response).find("rentPrice").text()+"</td>"+
+											"<td class='dialogTableCell dialogTableCellTitle'>商品價錢</td>"+
+											"<td class='dialogTableCell dialogTableCellContent'>"+$(response).find("rentPrice").text()+"</td>"+
 										"</tr>"+
 										"<tr>"+
-											"<td>剩餘儲值金額</td>"+
-											"<td>"+$(response).find("retainDeposit").text()+"</td>"+
+											"<td class='dialogTableCell dialogTableCellTitle'>剩餘儲值金額</td>"+
+											"<td class='dialogTableCell dialogTableCellContent'>"+$(response).find("retainDeposit").text()+"</td>"+
 										"</tr>"+		
 									"</table>"+
 									"<div class='transactionConfirm dialogConfirm'>確認</div>"
@@ -398,7 +401,7 @@
 				</div>
 				<div id = "dialogs">
 					<div id = "buyDialog" class="transactionDialog">
-						<table>
+						<table class="dialogTable">
 							<tr>
 								<td class="dialogTableCell dialogTableCellTitle" >名稱</td>
 								<td class="dialogTableCell dialogTableCellContent dialogName" id="buyDialogName" ></td>
@@ -415,7 +418,7 @@
 				
 					</div>
 					<div id = "rentDialog" class="transactionDialog">
-						<table>
+						<table class="dialogTable">
 							<tr>
 								<td class="dialogTableCell dialogTableCellTitle" >名稱</td>
 								<td class="dialogTableCell dialogTableCellContent dialogName" id="rentDialogName" ></td>

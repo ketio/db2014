@@ -25,7 +25,10 @@
 }
 .transactionDialog{
 	z-index:3;
+	font-family:微軟正黑體;
 }
+
+
 .video_picture{
 	width:300px;
 	height:300px;
@@ -44,25 +47,66 @@
 }
 .dialogConfirm{
 	cursor:pointer;
+	font-family:微軟正黑體;
+	background-color:rgb(102, 102, 102);
+	color:white;
+	text-align:center;
+	margin-top: 15px;
+	width: 110px;
+	margin-left: 30px;
 }
 .dialogCancle{
 	cursor:pointer;
+	font-family:微軟正黑體;
+	background-color:rgb(102, 102, 102);
+	color:white;
+	text-align:center;
+	margin-top: 15px;
+	width: 110px;
+	margin-right: 30px;
+	float:right;
+}
+.dialogTable{
+	width: 350px;
+	margin: 0px auto;
+	border-collapse:collapse;
+	border:hidden;
+	margin-bottom:5px;
+	margin-top:15px;
+}
+.dialogTableCellTitle{
+	width: 110px;
+	border:3px;
+	border-right:1px solid gray;
+	margin-left: 5px;
+	
+}
+.dialogTableCell{
+	font-family:微軟正黑體;
+	border-top:1px solid gray;
+	padding: 4px;
+}
+.dialogTableCellContent{
 }
 .video_inner_table{
 	margin-bottom: 30px;
 	margin-left:100px;
+	font-family:微軟正黑體;
 }
 .video_inner_table_title{
-	width:140px;
+	width:120px;
 	padding-right:20px;
 	text-align:right;
 	background-color:rgb(226, 226, 226);
+	font-family:微軟正黑體;
 }
 .video_inner_table_cell{
 	//width:300px;
 	line-height:23px;
 	height:23px;
+	padding-left:10px;
 	font-size:18px;
+	font-family:微軟正黑體;
 }
 .video_intro{
 	text-align: left;
