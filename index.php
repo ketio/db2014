@@ -35,7 +35,7 @@
 		videos= JSON.parse(videos);
 	
 		$(document).ready(function () {
-			console.log(videos);
+			//console.log(videos);
 			for( var i = 0; i < 4; i++){
 				$("#recommand_image_"+(i+1)).css("background-image","url(../db2014/data/cover/"+videos[i]+".png)");
 				$("#recommand_image_"+(i+1)).click(function(){
@@ -102,7 +102,7 @@
 			function ScaleSlider() {
 				var parentWidth = jssor_slider1.$Elmt.parentNode.clientWidth;
 				if (parentWidth)
-					jssor_slider1.$SetScaleWidth(Math.min(parentWidth, "1000px"));
+					jssor_slider1.$SetScaleWidth(Math.min(parentWidth, 1000));
 				else
 					window.setTimeout(ScaleSlider, 30);
 			}

@@ -1,7 +1,7 @@
 #main_page{
 	background:rgb(37, 37, 37);
 	min-height:1000px;
-	padding-top:7px;
+	padding-top:10px;
 }
 #recommand_container{
 	position:relative;
@@ -87,7 +87,7 @@
 #slider_container{
 	width: 100%;
 	background: rgb(29, 29, 29);
-	margin-top:7px;
+	//margin-top:7px;
 }
 #slider1{
 	margin:0 auto;
