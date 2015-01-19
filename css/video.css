@@ -26,6 +26,7 @@
 .transactionDialog{
 	z-index:3;
 	font-family:微軟正黑體;
+	display:none;
 }
 
 
@@ -73,6 +74,12 @@
 	border:hidden;
 	margin-bottom:5px;
 	margin-top:15px;
+}
+.dialogTableCellSuccess{
+	text-align:center;
+	font-size:16pt;
+	font-weight:bold;
+	padding-bottom:10px;
 }
 .dialogTableCellTitle{
 	width: 110px;

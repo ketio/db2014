@@ -82,9 +82,11 @@
 							var result=$(response).find("result").text()
 							if(result=="SUCCESS"){
 								$("#buyDialog").empty();
-								$("#buyDialog").dialog({title:"購買成功"});
 								$("#buyDialog").append(
 									"<table class='dialogTable'>"+
+										"<tr>"+
+											"<td class='dialogTableCell dialogTableCellSuccess' colspan='2'>購買成功</td>"+
+										"</tr>"+
 										"<tr>"+
 											"<td class='dialogTableCell dialogTableCellTitle'>會員名稱</td>"+
 											"<td class='dialogTableCell dialogTableCellContent'>"+$(response).find("userName").text()+"</td>"+
@@ -149,8 +151,10 @@
 							if(result=="SUCCESS"){
 								$("#rentDialog").empty();
 								$("#rentDialog").append(
-									"租借成功"+
 									"<table class='dialogTable'>"+
+										"<tr>"+
+											"<td class='dialogTableCell dialogTableCellSuccess' colspan='2'>租借成功</td>"+
+										"</tr>"+
 										"<tr>"+
 											"<td class='dialogTableCell dialogTableCellTitle'>會員名稱</td>"+
 											"<td class='dialogTableCell dialogTableCellContent'>"+$(response).find("userName").text()+"</td>"+
