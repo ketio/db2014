@@ -52,52 +52,63 @@
 					//alert($(response).find("result").text());
 					//console.log(response);
 					
-					$(response).find("video").each(function(){
-			
-						var video={
-							videoID:$(this).children("videoID").text(),
-							videoName:$(this).children("videoName").text(),
-							videoType:$(this).children("videoType").text(),
-							rentPrice:$(this).children("rentPrice").text(),
-							buyPrice:$(this).children("buyPrice").text(),
-							publishDate:$(this).children("publishDate").text(),
-							publisher:$(this).children("publisher").text(),
-							lang:$(this).children("lang").text(),
-							intro:$(this).children("intro").text(),
-							rating:$(this).children("rating").text()
-						}
-						
+					if($(response).find("video").length==0){
 						$("#videolist_interface").append(
-							"<div class='videolist_item'>"+
-								"<div class='video_rating_star_cell' id='Rating_"+video.videoID+"' data-number='"+video.rating+"' ></div>"+
-								"<div class='videolist_item_image_cell'>"+
-									"<a href='video.php?videoid="+video.videoID+"'>"+
-										"<img class='videolist_item_image' src='http://"+<?php echo '"'.$_SERVER['HTTP_HOST'].'"'; ?>+"/db2014/data/cover/"+video.videoID+".png'>"+
-									"</a>"+
-								"</div>"+
-								"<div class='videolist_item_name'>"+video.videoName+"</div>"+
-								"<div class='videolist_item_rentPrice'>售 NT. "+video.buyPrice+"</div>"+
-								"<div class='videolist_item_buyPrice'>租 NT. "+video.rentPrice+"</div>"+
-							"</div>"
-						);	
-						
-						if(video.rating==0){
-							$("#Rating_"+video.videoID).append(
-								"<img alt='1' src='system/js/raty/lib/images/star-no.png' title='regular'>"+
-								"<img alt='2' src='system/js/raty/lib/images/star-no.png' title='regular'>"+
-								"<img alt='3' src='system/js/raty/lib/images/star-no.png' title='regular'>"+
-								"<img alt='4' src='system/js/raty/lib/images/star-no.png' title='regular'>"+
-								"<img alt='5' src='system/js/raty/lib/images/star-no.png' title='regular'>"							
-							);
-						}
-						else{
-							$("#Rating_"+video.videoID).raty({
-								path:"system/js/raty/lib/images",
-								readOnly: true,
-								score:video.rating,
-							});		
-						}
-					});
+							"<div style='width:100%; text-align:center; margin-top:100px'>查無結果</div>"
+						);
+					}else{
+					
+						$(response).find("video").each(function(){
+				
+							var video={
+								videoID:$(this).children("videoID").text(),
+								videoName:$(this).children("videoName").text(),
+								videoType:$(this).children("videoType").text(),
+								rentPrice:$(this).children("rentPrice").text(),
+								buyPrice:$(this).children("buyPrice").text(),
+								publishDate:$(this).children("publishDate").text(),
+								publisher:$(this).children("publisher").text(),
+								lang:$(this).children("lang").text(),
+								intro:$(this).children("intro").text(),
+								rating:$(this).children("rating").text()
+							}
+							
+							$("#videolist_interface").append(
+								"<div class='videolist_item'>"+
+									"<div class='video_rating_star_cell' id='Rating_"+video.videoID+"' data-number='"+video.rating+"' ></div>"+
+									"<div class='videolist_item_image_cell'>"+
+										"<a href='video.php?videoid="+video.videoID+"'>"+
+											"<img class='videolist_item_image' src='http://"+<?php echo '"'.$_SERVER['HTTP_HOST'].'"'; ?>+"/db2014/data/cover/"+video.videoID+".png'>"+
+										"</a>"+
+									"</div>"+
+									"<div class='videolist_item_name'>"+video.videoName+"</div>"+
+									"<div class='videolist_item_price'>"+
+										"<div class='videolist_item_rentPrice'>售 "+video.buyPrice+" 元</div>"+
+										"<div class='videolist_item_buyPrice'>租 "+video.rentPrice+" 元</div>"+
+									"</div>"+
+								"</div>"
+							);	
+							
+							if(video.rating==0){
+								$("#Rating_"+video.videoID).append(
+									"<img alt='1' src='system/js/raty/lib/images/star-no.png' title='regular'>"+
+									"<img alt='2' src='system/js/raty/lib/images/star-no.png' title='regular'>"+
+									"<img alt='3' src='system/js/raty/lib/images/star-no.png' title='regular'>"+
+									"<img alt='4' src='system/js/raty/lib/images/star-no.png' title='regular'>"+
+									"<img alt='5' src='system/js/raty/lib/images/star-no.png' title='regular'>"							
+								);
+							}
+							else{
+								$("#Rating_"+video.videoID).raty({
+									path:"system/js/raty/lib/images",
+									readOnly: true,
+									half: true,
+									score:video.rating,
+								});		
+							}
+						});
+					}
+					
 				}
 				
 			});

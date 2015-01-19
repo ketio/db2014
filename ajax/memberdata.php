@@ -12,6 +12,8 @@
 		$mode=$_POST["mode"];	
 	if(isset($_POST["userName"]))	
 		$newUserName=$_POST["userName"];	
+	if(isset($_POST["videoID"]))	
+		$videoID=$_POST["videoID"];	
 
 	$mysqli=connect_database();
 	if($mode=="wanted"){
@@ -267,8 +269,20 @@
 		mysqli_stmt_execute($stmt);
 		mysqli_stmt_close($stmt);
 		
-		
 		$_SESSION["user"]["userName"]=$newUserName;
+	}
+	elseif($mode=="deleteWanted"){
+		
+		$result=array();
+		$query=
+			"delete from ".
+				"wanted ".
+			"where ".
+				"userID= ? and videoID= ? ";
+		$stmt = mysqli_prepare($mysqli, $query);
+		mysqli_stmt_bind_param($stmt, "ss",$userID,$videoID);
+		mysqli_stmt_execute($stmt);
+		mysqli_stmt_close($stmt);		
 	}
 	
 	function getDepositSum($mysqli,$userID){

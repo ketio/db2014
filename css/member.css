@@ -100,7 +100,7 @@
 	text-algin:center;
 }
 .member_data_table_button{
-background-color: black; 
+	background-color: black; 
 	color:white;
 	width: 160px;
 	margin-top: 30px;
@@ -128,4 +128,20 @@ background-color: black;
 }
 #member_userName input{
 	text-align:center;
+}
+.video_list_table_title_delete{
+	border-bottom:2px dashed gray;
+	width:80px;
+	
+}
+.video_list_table_delete_button{
+	background-color: black; 
+	color:white;
+	width: 50px;
+	margin: 0px auto;
+	height: 25px;
+	line-height:25px;
+	font-size: 11pt;
+	text-align:center;
+	cursor:pointer;
 }

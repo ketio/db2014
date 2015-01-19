@@ -67,6 +67,9 @@
 									"<td class='video_list_table_title_date'>"+
 										"加入時間"+
 									"</td>"+
+									"<td class='video_list_table_title_delete'>"+
+										"刪除"+
+									"</td>"+
 								"</tr>"+
 							"</table>"					
 						);
@@ -93,10 +96,20 @@
 									"<td class='video_list_table_cell'>"+
 										video.time.substr(0, 10)+
 									"</td>"+
+									"<td class='video_list_table_cell'>"+
+										"<div class='video_list_table_delete_button' videoid='"+video.videoID+"'>"+
+											"刪除"+
+										"</div>"+
+									"</td>"+
 								"</tr>"
 							);
 						
-						});						
+						});		
+
+						$(".video_list_table_delete_button").click(function(){
+							var videoID=$(this).attr("videoid");
+							deleteWanted(videoID);
+						});
 					}					
 				});
 			}
@@ -368,6 +381,24 @@
 			});
 		
 			get_list("member");
+		}
+		function deleteWanted(videoID){
+			if(confirm("確認刪除?")){
+				$.ajax({
+					async: true,
+					type: "post",
+					url: "./ajax/memberdata.php",
+					dataType: "xml",
+					data:{
+						videoID:videoID,
+						mode:"deleteWanted"
+					},
+					success: function(response){
+						alert("刪除成功");
+						get_list("wanted");
+					}
+				});	
+			}
 		}
 		function setRating(videoID,score){
 		
