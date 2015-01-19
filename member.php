@@ -86,7 +86,9 @@
 										"<img class='video_picture' src='http://"+<?php echo '"'.$_SERVER['HTTP_HOST'].'"'; ?>+"/db2014/data/cover/"+video.videoID+".png'>"+
 									"</td>"+
 									"<td class='video_list_table_cell'>"+
-										video.videoName+
+										"<a href='video.php?videoid="+video.videoID+"' >"+
+											video.videoName+
+										"</a>"+
 									"</td>"+
 									"<td class='video_list_table_cell'>"+
 										video.time.substr(0, 10)+
@@ -146,7 +148,9 @@
 										"<img class='video_picture' src='http://"+<?php echo '"'.$_SERVER['HTTP_HOST'].'"'; ?>+"/db2014/data/cover/"+video.videoID+".png'>"+
 									"</td>"+
 									"<td class='video_list_table_cell'>"+
-										video.videoName+
+										"<a href='video.php?videoid="+video.videoID+"' >"+
+											video.videoName+
+										"</a>"+
 									"</td>"+
 									"<td class='video_list_table_cell'>"+
 										video.time.substr(0, 10)+
@@ -222,7 +226,9 @@
 										"<img class='video_picture' src='http://"+<?php echo '"'.$_SERVER['HTTP_HOST'].'"'; ?>+"/db2014/data/cover/"+video.videoID+".png'>"+
 									"</td>"+
 									"<td class='video_list_table_cell'>"+
-										video.videoName+
+										"<a href='video.php?videoid="+video.videoID+"' >"+
+											video.videoName+
+										"</a>"+
 									"</td>"+
 									"<td class='video_list_table_cell'>"+
 										video.startTime.substr(0, 10)+
