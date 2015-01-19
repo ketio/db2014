@@ -75,7 +75,8 @@
 	height:50px;
 	top:70%;
 	right:5%;
-	background:url("../db2014/data/toTheTop.png");
-	background:white;
+	background:url("../data/toTheTop.png");
+	background-size:50px 50px;
 	z-index:99;
+	cursor:pointer;
 }
