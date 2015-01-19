@@ -97,37 +97,61 @@ html body{
 	position:absolute;
 	right:5px;
 	top:50px;
-	width:245px;
+	width:300px;
+	font-family:微軟正黑體;
 }
 #search_icon{
 	margin-top:1px;
 	margin-right:2px;
 	height:24px;
-}
-#header_search_input {
 	position:absolute;
-	height: 20px;
-	width: 130px; 
+	left:15px;
+}
+.header_search_input {
+	position:absolute;
+	left:45px;
+	height: 24px;
+	width: 110px; 
 	border: 1px solid black;
 	display: inline-block;
-	color: #a2a2a2;
-	padding:2px;
+	color: #cccccc;
+	padding:0px;
+	line-height:24px;
+	font-family:微軟正黑體;
+	font-size:11pt;
+	padding-left:4px;
 }
+.header_search_input_focus {
+	
+	color: #000000;
+	
+}
+
+#searchBy{
+	position:absolute;
+	left:165px;
+	border:1px solid black;
+	height:26px;
+	padding:0px;
+	font-family:微軟正黑體;
+	font-size:11pt;
+	width:60px;
+}
+
 #header_search_button{
 	position:absolute;
-	left:170px;
+	left:230px;
 	display:inline-block;
 	cursor:pointer;
 	background:black;
 	color:white;
-	height:18px;
-	line-height:18px;
+	height:26px;
+	line-height:26px;
 	font-size:10pt;
 	font-weight:bold;
-	padding:3px;
 	padding-left:5px;
 	padding-right:5px;
-	box-shadow:2px 2px 1px rgba(20%,20%,40%,0.5);
+	box-shadow:2px 2px 1px rgba(40%,40%,40%,0.5);
 }
 
 #logout{

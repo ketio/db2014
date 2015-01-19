@@ -13,7 +13,9 @@
 	if(isset($_POST["videoID"]))	
 		$videoID=$_POST["videoID"];	
 	if(isset($_POST["keyword"]))	
-		$keyword=$_POST["keyword"];				
+		$keyword=$_POST["keyword"];	
+	if(isset($_POST["searchBy"]))	
+		$searchBy=$_POST["searchBy"];		
 
 	$mysqli=connect_database();
 
@@ -141,6 +143,7 @@
 	
 	
 		$keyword = "%".$keyword."%";
+		
 		$result=array();
 		$query=
 			"select ".
@@ -155,7 +158,18 @@
 				"publisher as B, ".
 				"videotype as C ".				
 			"where ".
-				"B.publisherID = A.publisher and C.videoTypeID = A.videotype and A.videoName LIKE ? ";
+				"B.publisherID = A.publisher and C.videoTypeID = A.videotype ";
+				
+		if($searchBy=="videoName"){
+			$query.=" and A.videoName LIKE ? ";
+		}elseif($searchBy=="videoType"){
+			$query.=" and C.videoTypeMode LIKE ? ";
+		}elseif($searchBy=="publisher"){
+			$query.=" and B.publisherName LIKE ? ";
+		}elseif($searchBy=="lang"){
+			$query.=" and A.lang LIKE ? ";
+		}
+				
 		$query.=" group by A.videoID ";
 		if($orderBy=="buyPrice"){
 			$query.=

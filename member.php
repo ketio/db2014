@@ -39,6 +39,11 @@
 				$(this).addClass("member_option_item_choose");
 				get_list(optionValue);
 			});
+			$("#toTheTop").click(function(){
+				 $("html, body").animate({
+					 scrollTop:0
+				 },100);
+			});
 		});
 		
 		function get_list(mode){
@@ -446,6 +451,7 @@
 				<div id="member_interface">
 					請選擇
 				</div>
+				<div id="toTheTop"></div>
 			</div>
 			<?php 
 				include_once "footer.php"; 

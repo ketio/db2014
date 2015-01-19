@@ -1,9 +1,8 @@
 <?php 
 	include_once "./system/session.php"; 
-?>	
-<?php
-	$keyword=$_GET["keyword"];
 	
+	$keyword=$_GET["keyword"];
+	$searchBy=$_GET["searchBy"];	
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,24 +16,32 @@
 	
 	<script>
 		var keyword = <?php echo "'".$keyword."'";  ?>;
-
+		var searchBy = <?php echo "'".$searchBy."'";  ?>;
+		
+		console.log(searchBy);
+		
 		orderBy="default";
 		
 		
 		$(document).ready(function () {
 			$(".orderByItem[orderByValue='"+orderBy+"']").addClass("orderByItem_choose");
 		
-			getVideoList(keyword,orderBy);
+			getVideoList(keyword,orderBy,searchBy);
 			
 			$(".orderByItem").click(function(){
 				$(".orderByItem[orderByValue='"+orderBy+"']").removeClass("orderByItem_choose");				
 				orderBy = $(this).attr("orderByValue");
 				$(this).addClass("orderByItem_choose");
-				getVideoList(keyword,orderBy);
+				getVideoList(keyword,orderBy,searchBy);
+			});
+			$("#toTheTop").click(function(){
+				 $("html, body").animate({
+					 scrollTop:0
+				 },100);
 			});
 		});
 				
-		function getVideoList(keyword,orderBy){
+		function getVideoList(keyword,orderBy,searchBy){
 					
 			$.ajax({
 				async: true,
@@ -44,13 +51,14 @@
 				data:{
 					keyword:keyword,
 					orderBy:orderBy,
+					searchBy:searchBy,
 					mode:"search",
 				},
 				success: function(response){
 				
 					$("#videolist_interface").empty();
 					//alert($(response).find("result").text());
-					//console.log(response);
+					console.log(response);
 					
 					if($(response).find("video").length==0){
 						$("#videolist_interface").append(
@@ -142,6 +150,6 @@
 			<?php 
 				include_once "footer.php"; 
 			?>	
-		</div>
+		</div><div id="toTheTop"></div>
 	</body>
 </html>
