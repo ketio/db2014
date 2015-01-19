@@ -138,7 +138,7 @@
 								 top: 0px; left: 0px;width: 100%;height:100%;">
 							</div>
 							<div style="position:absolute; display: block; top: 0px; left: 0px;width: 100%;height:100%; width:100%;text-align:center">
-								<img src="img/slider/loading.gif"/>
+								<!--<img src="img/slider/loading.gif"/>-->
 							</div>
 							
 							<!--<div style="position: absolute; display: block; background: url(img/slider/loading.gif) no-repeat center center;
