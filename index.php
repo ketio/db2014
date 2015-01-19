@@ -36,13 +36,13 @@
 	
 		$(document).ready(function () {
 			console.log(videos);
-			for( var i = 0; i < 5; i++){
+			for( var i = 0; i < 4; i++){
 				$("#recommand_image_"+(i+1)).css("background-image","url(../db2014/data/cover/"+videos[i]+".png)");
 				$("#recommand_image_"+(i+1)).click(function(){
 					location.href="/db2014/video.php?videoid="+videos[i];
 				});
 			}
-			//$("#recommand_image_1").css("background-image","url(../db2014/data/cover/"+videos[0]+".png)");
+			////$("#recommand_image_1").css("background-image","url(../db2014/data/cover/"+videos[0]+".png)");
 			//$("#recommand_image_2").css("background-image","url(../db2014/data/cover/"+videos[1]+".png)");
 			//$("#recommand_image_3").css("background-image","url(../db2014/data/cover/"+videos[2]+".png)");
 			//$("#recommand_image_4").css("background-image","url(../db2014/data/cover/"+videos[3]+".png)");
@@ -102,7 +102,7 @@
 			function ScaleSlider() {
 				var parentWidth = jssor_slider1.$Elmt.parentNode.clientWidth;
 				if (parentWidth)
-					jssor_slider1.$SetScaleWidth(Math.min(parentWidth, 600));
+					jssor_slider1.$SetScaleWidth(Math.min(parentWidth, "1000px"));
 				else
 					window.setTimeout(ScaleSlider, 30);
 			}
@@ -130,22 +130,9 @@
 				include_once "header.php"; 
 			?>	
 			<div id="main_page">
-				<div id="recommand_container">
-					<div id="recommand_image_container">
-						<div id="recommand_image_1" class="recommand_image">
-						</div>
-						<div id="recommand_image_2" class="recommand_image recommand_image_mid">
-						</div>
-						<div id="recommand_image_3" class="recommand_image recommand_image_mid">
-						</div>
-						<div id="recommand_image_4" class="recommand_image recommand_image_mid">
-						</div>
-						<div id="recommand_image_5" class="recommand_image">
-						</div>
-					</div>
-				</div>
+				
 				<div id="slider_container" >
-					<div id="slider1" style="position: relative; top: 0px; left: 0px; width: 600px; height: 360px; overflow: hidden; ">
+					<div id="slider1" style="position: relative; top: 0px; left: 0px; width: 1000px; height: 562px; overflow: hidden; ">
 
 						<!-- Loading Screen -->
 						<div u="loading" style="position: absolute; top: 0px; left: 0px;">
@@ -162,7 +149,7 @@
 							-->
 						</div>
 						<!-- Slides Container -->
-						<div u="slides" style="position: absolute; left: 0px; top: 0px; width: 600px; height: 360px; overflow: hidden;">
+						<div u="slides" style="position: absolute; left: 0px; top: 0px; width: 1000px; height: 562px; overflow: hidden;">
 							<div>
 								<img u="image" src="data/slider/mockingjay_banner.jpg" />
 							</div>
@@ -197,6 +184,20 @@
 					</div>
 					<!-- Jssor Slider End -->
 				</div>
+				
+				<div id="recommand_container">
+					<div id="recommand_image_container">
+						<div id="recommand_image_1" class="recommand_image">
+						</div>
+						<div id="recommand_image_2" class="recommand_image recommand_image_mid">
+						</div>
+						<div id="recommand_image_3" class="recommand_image recommand_image_mid">
+						</div>
+						<div id="recommand_image_4" class="recommand_image">
+						</div>
+					</div>
+				</div>
+				
 				<div id="news_interface">
 					<div id="news_title">
 						最新消息 &nbsp;<span id="new_a ">NEWS</span>
@@ -207,8 +208,9 @@
 				</div>
 			</div>
 			<?php 
-				//include_once "footer.php"; 
+				include_once "footer.php"; 
 			?>	
 		</div>
+		
 	</body>
 </html>

@@ -96,7 +96,7 @@
 	}
 	#register_page{
 		background:white;
-		height:1000px;
+		min-height:600px;
 	}
 	#confirm_text{
 		height: 23px;
@@ -177,6 +177,9 @@
 				</div>
 				
 			</div>
+			<?php 
+				include_once "footer.php"; 
+			?>	
 		</div>
 	</body>
 

@@ -21,7 +21,7 @@
 }
 #login_page{
 	background:white;
-	height:1000px;
+	min-height:600px;
 }
 .login_text{
 	height: 23px;
