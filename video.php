@@ -23,6 +23,8 @@
 		var isLogin = <?php echo $isLogin; ?>;
 		var video;	
 		
+		var sending = null;
+		
 		$(document).ready(function () {
 			getVideo(videoID);			
 		});
@@ -57,65 +59,151 @@
 			
 			$("#buyConfirm").click(function(){
 				$(this).unbind("click");
-				$.ajax({
-					async: true,
-					type: "post",
-					url: "ajax/videotransaction.php",
-					dataType: "xml",
-					data:{
-						videoID:videoID,
-						mode:"buy",
-					},
-					success: function(response){
-						console.log(response);
-						var result=$(response).find("result").text()
-						if(result=="SUCCESS"){
-							$("#buyDialog").empty();
-							$("#buyDialog").append(
-								"購買成功"+
-								"<table>"+
-									"<tr>"+
-										"<td>會員名稱</td>"+
-										"<td>"+$(response).find("userName").text()+"</td>"+
-									"</tr>"+
-									"<tr>"+
-										"<td>原儲值金額</td>"+
-										"<td>"+$(response).find("depositSum").text()+"</td>"+
-									"</tr>"+
-									"<tr>"+
-										"<td>購買商品</td>"+
-										"<td>"+$(response).find("videoName").text()+"</td>"+
-									"</tr>"+
-									"<tr>"+
-										"<td>商品價錢</td>"+
-										"<td>"+$(response).find("buyPrice").text()+"</td>"+
-									"</tr>"+
-									"<tr>"+
-										"<td>剩餘儲值金額</td>"+
-										"<td>"+$(response).find("retainDeposit").text()+"</td>"+
-									"</tr>"+		
-								"</table>"+
-								"<div class='transactionConfirm dialogConfirm'>確認</div>"
-							);
-							
-							$(".transactionConfirm").click(function(){
-								$(".transactionDialog").dialog("close");
-							});		
-							
+				
+				if (sending !== null) {
+					clearTimeout(sending);
+					sending = null;
+				}
+				sending = setTimeout(function(){
+					$.ajax({
+						async: true,
+						type: "post",
+						url: "ajax/videotransaction.php",
+						dataType: "xml",
+						data:{
+							videoID:videoID,
+							mode:"buy",
+						},
+						success: function(response){
+							console.log(response);
+							var result=$(response).find("result").text()
+							if(result=="SUCCESS"){
+								$("#buyDialog").empty();
+								$("#buyDialog").append(
+									"購買成功"+
+									"<table>"+
+										"<tr>"+
+											"<td>會員名稱</td>"+
+											"<td>"+$(response).find("userName").text()+"</td>"+
+										"</tr>"+
+										"<tr>"+
+											"<td>原儲值金額</td>"+
+											"<td>"+$(response).find("depositSum").text()+"</td>"+
+										"</tr>"+
+										"<tr>"+
+											"<td>購買商品</td>"+
+											"<td>"+$(response).find("videoName").text()+"</td>"+
+										"</tr>"+
+										"<tr>"+
+											"<td>商品價錢</td>"+
+											"<td>"+$(response).find("buyPrice").text()+"</td>"+
+										"</tr>"+
+										"<tr>"+
+											"<td>剩餘儲值金額</td>"+
+											"<td>"+$(response).find("retainDeposit").text()+"</td>"+
+										"</tr>"+		
+									"</table>"+
+									"<div class='transactionConfirm dialogConfirm'>確認</div>"
+								);
+								
+								$(".transactionConfirm").click(function(){
+									$(".transactionDialog").dialog("close");
+								});		
+								
+							}
+							else if(result=="FAIL"){
+								$("#buyDialog").empty();
+								$("#buyDialog").append(
+									"<div>"+$(response).find("reason").text()+"</div>"								
+								);
+							}
+							getVideo(videoID);
 						}
-						else if(result=="FAIL"){
-							$("#buyDialog").empty();
-							$("#buyDialog").append(
-								"<div>"+$(response).find("reason").text()+"</div>"								
-							);
-						}
-						getVideo(videoID);
-					}
-				});	
+					});	
+				}, 300);
 			});
 			
 			$("#rentConfirm").click(function(){
 				$(this).unbind("click");
+				
+				if (sending !== null) {
+					clearTimeout(sending);
+					sending = null;
+				}
+				sending = setTimeout(function(){
+					$.ajax({
+						async: true,
+						type: "post",
+						url: "ajax/videotransaction.php",
+						dataType: "xml",
+						data:{
+							videoID:videoID,
+							mode:"rent",
+						},
+						success: function(response){
+							console.log(response);
+							var result=$(response).find("result").text()
+							if(result=="SUCCESS"){
+								$("#rentDialog").empty();
+								$("#rentDialog").append(
+									"租借成功"+
+									"<table>"+
+										"<tr>"+
+											"<td>會員名稱</td>"+
+											"<td>"+$(response).find("userName").text()+"</td>"+
+										"</tr>"+
+										"<tr>"+
+											"<td>原儲值金額</td>"+
+											"<td>"+$(response).find("depositSum").text()+"</td>"+
+										"</tr>"+
+										"<tr>"+
+											"<td>租借商品</td>"+
+											"<td>"+$(response).find("videoName").text()+"</td>"+
+										"</tr>"+
+										"<tr>"+
+											"<td>租借時間</td>"+
+											"<td>"+$(response).find("startTime").text().substr(0,10)+"</td>"+
+										"</tr>"+
+										"<tr>"+
+											"<td>到期時間</td>"+
+											"<td>"+$(response).find("endTime").text().substr(0,10)+"</td>"+
+										"</tr>"+
+										"<tr>"+
+											"<td>商品價錢</td>"+
+											"<td>"+$(response).find("rentPrice").text()+"</td>"+
+										"</tr>"+
+										"<tr>"+
+											"<td>剩餘儲值金額</td>"+
+											"<td>"+$(response).find("retainDeposit").text()+"</td>"+
+										"</tr>"+		
+									"</table>"+
+									"<div class='transactionConfirm dialogConfirm'>確認</div>"
+								);
+								
+								$(".transactionConfirm").click(function(){
+									$(".transactionDialog").dialog("close");
+								});						
+							}
+							else if(result=="FAIL"){
+								$("#buyDialog").append(
+									"<div>"+$(response).find("reason").text()+"</div>"								
+								);
+							}
+							getVideo(videoID);
+						}
+					});	
+				}, 300);
+				
+			});
+		}
+		
+		function putVideoClick(){		
+		
+			if (sending !== null) {
+				clearTimeout(sending);
+				sending = null;
+			}
+			sending = setTimeout(function(){
 				$.ajax({
 					async: true,
 					type: "post",
@@ -123,53 +211,24 @@
 					dataType: "xml",
 					data:{
 						videoID:videoID,
-						mode:"rent",
+						mode:"put",
 					},
 					success: function(response){
 						console.log(response);
 						var result=$(response).find("result").text()
 						if(result=="SUCCESS"){
-							$("#rentDialog").empty();
-							$("#rentDialog").append(
-								"租借成功"+
-								"<table>"+
-									"<tr>"+
-										"<td>會員名稱</td>"+
-										"<td>"+$(response).find("userName").text()+"</td>"+
-									"</tr>"+
-									"<tr>"+
-										"<td>原儲值金額</td>"+
-										"<td>"+$(response).find("depositSum").text()+"</td>"+
-									"</tr>"+
-									"<tr>"+
-										"<td>租借商品</td>"+
-										"<td>"+$(response).find("videoName").text()+"</td>"+
-									"</tr>"+
-									"<tr>"+
-										"<td>租借時間</td>"+
-										"<td>"+$(response).find("startTime").text().substr(0,10)+"</td>"+
-									"</tr>"+
-									"<tr>"+
-										"<td>到期時間</td>"+
-										"<td>"+$(response).find("endTime").text().substr(0,10)+"</td>"+
-									"</tr>"+
-									"<tr>"+
-										"<td>商品價錢</td>"+
-										"<td>"+$(response).find("rentPrice").text()+"</td>"+
-									"</tr>"+
-									"<tr>"+
-										"<td>剩餘儲值金額</td>"+
-										"<td>"+$(response).find("retainDeposit").text()+"</td>"+
-									"</tr>"+		
-								"</table>"+
+							$("#putDialog").empty();
+							$("#putDialog").append(
+								"已成功將 "+$(response).find("videoName").text()+" 放入願望清單"+
 								"<div class='transactionConfirm dialogConfirm'>確認</div>"
 							);
-							
+								
 							$(".transactionConfirm").click(function(){
 								$(".transactionDialog").dialog("close");
-							});						
+							});
 						}
 						else if(result=="FAIL"){
+							$("#buyDialog").empty();
 							$("#buyDialog").append(
 								"<div>"+$(response).find("reason").text()+"</div>"								
 							);
@@ -177,43 +236,7 @@
 						getVideo(videoID);
 					}
 				});	
-			});
-		}
-		
-		function putVideoClick(){		
-
-			$.ajax({
-				async: true,
-				type: "post",
-				url: "ajax/videotransaction.php",
-				dataType: "xml",
-				data:{
-					videoID:videoID,
-					mode:"put",
-				},
-				success: function(response){
-					console.log(response);
-					var result=$(response).find("result").text()
-					if(result=="SUCCESS"){
-						$("#putDialog").empty();
-						$("#putDialog").append(
-							"已成功將 "+$(response).find("videoName").text()+" 放入願望清單"+
-							"<div class='transactionConfirm dialogConfirm'>確認</div>"
-						);
-							
-						$(".transactionConfirm").click(function(){
-							$(".transactionDialog").dialog("close");
-						});
-					}
-					else if(result=="FAIL"){
-						$("#buyDialog").empty();
-						$("#buyDialog").append(
-							"<div>"+$(response).find("reason").text()+"</div>"								
-						);
-					}
-					getVideo(videoID);
-				}
-			});	
+			}, 300);
 		
 		}		
 		

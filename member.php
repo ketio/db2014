@@ -26,6 +26,7 @@
 	<script>
 		var userID=<?php echo "'".$userID."'"; ?>;
 		$(document).ready(function(){
+			get_list("wanted");		
 			$("#wanted_list_option").click(function(){
 				get_list("wanted");
 			});
@@ -288,8 +289,10 @@
 										"<td id='member_depositSum' class='member_data_table_col_snd'><td></td>"+
 									"</tr>"+
 								"</table>"+
-								"<div id='button'>"+
-									"更改會員資料"+
+								"<div id='member_data_table_revise_button_interface'>"+
+									"<div id='member_data_table_revise_button' class='member_data_table_button'>"+
+										"更改會員資料"+
+									"</div>"+
 								"</div>"+
 							"</div>"
 						);
@@ -306,19 +309,60 @@
 								depositSum:$(this).children("depositSum").text()
 								
 							};
-							console.log(member);
 							$("#member_account").append(member.account);
 							$("#member_userName").append(member.userName);
 							$("#member_gender").append(member.gender);
 							$("#member_birthday").append(member.birthday.substr(0,10));
 							$("#member_depositSum").append(member.depositSum);
 						
-						});						
+						});				
+
+						$("#member_data_table_revise_button").click(function(){
+							var userName=$("#member_userName").html();
+							$("#member_userName").html(
+								"<input id='member_userName_input' type='text' name='userName' value='"+userName+"' size='6'>"
+							);
+							$("#member_data_table_revise_button_interface").html(
+								"<div id='member_data_table_revise_check_button' class='member_data_table_button'>"+
+									"保存變更"+
+								"</div>"+
+								"<div id='member_data_table_revise_cancle_button'class='member_data_table_button'>"+
+									"取消變更"+
+								"</div>"
+							);
+							
+							$("#member_data_table_revise_cancle_button").click(function(){
+								get_list("member");
+							});
+							$("#member_data_table_revise_check_button").click(function(){
+								reviseMemberData();
+							});
+						});
 					}			
 				});
 			}
 		}
 		
+		function reviseMemberData(){
+			
+						
+			$.ajax({
+				async: true,
+				type: "post",
+				url: "./ajax/memberdata.php",
+				dataType: "xml",
+				data:{
+					userName:$("#member_userName_input").val(),
+					mode:"revise",
+				},
+				success: function(response){
+					alert("修改成功");
+					get_list("member");
+				}
+			});
+		
+			get_list("member");
+		}
 		function setRating(videoID,score){
 		
 			$.ajax({

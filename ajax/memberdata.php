@@ -10,6 +10,8 @@
 	}
 	if(isset($_POST["mode"]))	
 		$mode=$_POST["mode"];	
+	if(isset($_POST["userName"]))	
+		$newUserName=$_POST["userName"];	
 
 	$mysqli=connect_database();
 	if($mode=="wanted"){
@@ -250,7 +252,21 @@
 			echo "</member>";
 		echo "</response>";
 	}
-	
+	elseif($mode=="revise"){
+		
+		$result=array();
+		$query=
+			"update ".
+				"user ".
+			"set ".
+				"userName = ? ".
+			"where ".
+				"userID= ? ";
+		$stmt = mysqli_prepare($mysqli, $query);
+		mysqli_stmt_bind_param($stmt, "ss",$newUserName,$userID);
+		mysqli_stmt_execute($stmt);
+		mysqli_stmt_close($stmt);
+	}
 	
 	function getDepositSum($mysqli,$userID){
 		$depositSum=-100000;
