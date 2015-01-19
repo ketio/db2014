@@ -42,11 +42,6 @@
 					location.href="/db2014/video.php?videoid="+videos[i];
 				});
 			}
-			////$("#recommand_image_1").css("background-image","url(../db2014/data/cover/"+videos[0]+".png)");
-			//$("#recommand_image_2").css("background-image","url(../db2014/data/cover/"+videos[1]+".png)");
-			//$("#recommand_image_3").css("background-image","url(../db2014/data/cover/"+videos[2]+".png)");
-			//$("#recommand_image_4").css("background-image","url(../db2014/data/cover/"+videos[3]+".png)");
-			//$("#recommand_image_5").css("background-image","url(../db2014/data/cover/"+videos[4]+".png)");	
 
 			var _SlideshowTransitions = [
 			//Fade
@@ -189,9 +184,9 @@
 					<div id="recommand_image_container">
 						<div id="recommand_image_1" class="recommand_image">
 						</div>
-						<div id="recommand_image_2" class="recommand_image recommand_image_mid">
+						<div id="recommand_image_2" class="recommand_image">
 						</div>
-						<div id="recommand_image_3" class="recommand_image recommand_image_mid">
+						<div id="recommand_image_3" class="recommand_image">
 						</div>
 						<div id="recommand_image_4" class="recommand_image">
 						</div>

@@ -21,9 +21,6 @@
 	background-size: 300px 300px;
 	cursor:pointer;
 }
-.recommand_image_mid{
-}
-
 
 #recommand_image_1{
 
@@ -45,10 +42,7 @@
 	left:770px;
 	background-position: 50% 0%;	
 }
-#recommand_image_5{
-	left:765px;
-	background-position: 0% 30%;	
-}
+
 
 #news_interface{
 	margin-top:30px;
