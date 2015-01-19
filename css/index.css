@@ -20,6 +20,12 @@
 	display: inline-block;	
 	background-size: 300px 300px;
 	cursor:pointer;
+	
+	-webkit-filter: brightness(1.0);
+}
+.recommand_image:hover{
+
+	-webkit-filter: brightness(1.3);
 }
 
 #recommand_image_1{
