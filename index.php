@@ -172,10 +172,10 @@
 						</div>
 						<!-- Arrow Navigator Skin Begin -->
 						<!-- Arrow Left -->
-						<span u="arrowleft" class="jssora12l" style="width: 30px; height: 46px; top: 230px; left: 0px;">
+						<span u="arrowleft" class="jssora12l" style="width: 30px; height: 46px; top: 400px; left: 0px;">
 						</span>
 						<!-- Arrow Right -->
-						<span u="arrowright" class="jssora12r" style="width: 30px; height: 46px; top: 230px; right: 0px">
+						<span u="arrowright" class="jssora12r" style="width: 30px; height: 46px; top: 400px; right: 0px">
 						</span>
 						<!-- Arrow Navigator Skin End -->
 						<a style="display: none" href="http://www.jssor.com">javascript</a>
