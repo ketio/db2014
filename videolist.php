@@ -38,6 +38,13 @@
 				$(this).addClass("orderByItem_choose");
 				getVideoList(videoTypeName,"default",orderBy);
 			});
+			
+			$("#toTheTop").click(function(){
+				 $("html, body").animate({
+					 scrollTop:0
+				 },100);
+			});
+			
 		});
 				
 		function getVideoList(videoTypeName,videoTypeMode,orderBy){
@@ -137,6 +144,7 @@
 				<div id="videolist_interface">
 					
 				</div>
+				<div id="toTheTop"></div>
 			</div>
 			<?php 
 				include_once "footer.php"; 
