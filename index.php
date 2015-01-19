@@ -1,5 +1,24 @@
 <?php 
 	include_once "./system/session.php"; 
+	include_once "./system/library.php"; 
+	$mysqli=connect_database();
+	$result=array();
+	$query=
+		"select ".
+			"videoID ".
+		"from ".
+			"video ";
+	$stmt = mysqli_prepare($mysqli, $query);
+	mysqli_stmt_bind_result($stmt,$videoID);
+	mysqli_stmt_execute($stmt);
+	while(mysqli_stmt_fetch($stmt)){
+		array_push($result,$videoID);
+	}			
+	mysqli_stmt_close($stmt);
+	shuffle($result);
+	$result=json_encode($result); 
+	
+	
 ?>	
 <!DOCTYPE html>
 <html>
@@ -12,7 +31,22 @@
 	<script type="text/javascript" src="system/js/jssor.utils.js"></script>
 	<script type="text/javascript" src="system/js/jssor.slider.js"></script>
 	<script>
+		var videos=<?php echo "'".$result."'"; ?>;
+		videos= JSON.parse(videos);
+	
 		$(document).ready(function () {
+			console.log(videos);
+			for( var i = 0; i < 5; i++){
+				$("#recommand_image_"+(i+1)).css("background-image","url(../db2014/data/cover/"+videos[i]+".png)");
+				$("#recommand_image_"+(i+1)).click(function(){
+					location.href="/db2014/video.php?videoid="+videos[i];
+				});
+			}
+			//$("#recommand_image_1").css("background-image","url(../db2014/data/cover/"+videos[0]+".png)");
+			//$("#recommand_image_2").css("background-image","url(../db2014/data/cover/"+videos[1]+".png)");
+			//$("#recommand_image_3").css("background-image","url(../db2014/data/cover/"+videos[2]+".png)");
+			//$("#recommand_image_4").css("background-image","url(../db2014/data/cover/"+videos[3]+".png)");
+			//$("#recommand_image_5").css("background-image","url(../db2014/data/cover/"+videos[4]+".png)");	
 
 			var _SlideshowTransitions = [
 			//Fade

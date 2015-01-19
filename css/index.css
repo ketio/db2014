@@ -18,6 +18,7 @@
 	//background:black;
 	display: inline-block;	
 	background-size: 195px 195px;
+	cursor:pointer;
 }
 .recommand_image_mid{
 }

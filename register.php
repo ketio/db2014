@@ -10,8 +10,63 @@
 	
 	<script>
 		$(document).ready(function () {
-
+			$("#confirm_text").click(function(){
+				if($("input[name='account']").val()==""){
+					alert("帳號不可以為空白");
+				}
+				else if($("input[name='password']").val()==""){
+					alert("密碼不可以為空白");
+				}
+				else if($("input[name='password2']").val()==""){
+					alert("請確認密碼");
+				}
+				else if($("input[name='password']").val()!=$("input[name='password2']").val()){
+					alert("密碼驗證錯誤");
+				}
+				else if($("input[name='username']").val()==""){
+					alert("會員名稱不可以為空白");
+				}
+				else if($("input[name='birthday_y']").val()==""){
+					alert("生日不可以為空白");
+				}
+				else if($("input[name='birthday_m']").val()==""){
+					alert("生日不可以為空白");
+				}
+				else if($("input[name='birthday_d']").val()==""){
+					alert("生日不可以為空白");
+				}
+				else{
+					$("#register_form").submit();		
+				}				
+			});
 		});
+		function isDate(year, month, day){  
+			var dateStr;  
+			if (!month || !day) {  
+				if (month == '') {  
+					dateStr = year + "/1/1"  
+				}else if (day == '') {  
+					dateStr = year + '/' + month + '/1';  
+				}  
+				else {  
+					dateStr = year.replace(/[.-]/g, '/');  
+				}  
+			}  
+			else {  
+				dateStr = year + '/' + month + '/' + day;  
+			}  
+			dateStr = dateStr.replace(/\/0+/g, '/');  
+		  
+			var accDate = new Date(dateStr);  
+			var tempDate = accDate.getFullYear() + "/";  
+			tempDate += (accDate.getMonth() + 1) + "/";  
+			tempDate += accDate.getDate();  
+		  
+			if (dateStr == tempDate) {  
+				return true;  
+			}  
+			return false;  
+		}  
 	</script>	
 	</head>
 
@@ -64,13 +119,7 @@
 		line-height: 300%;
 	}
 	</style>
-	<script>
-		$(document).ready(function () {
-			$("#confirm_text").click(function(){
-				$("#register_form").submit();			
-			});
-		});
-	</script>
+	
 
 	<body>
 		<div id="content_wrapper">
@@ -93,7 +142,12 @@
 						</div>
 						<div class="text_css" >
 							PASSWORD | 登入密碼
-							<input type="text" name="password">
+							<input type="password" name="password">
+							</input>
+						</div>
+						<div class="text_css" >
+							CHECK AGAIN | 確認密碼
+							<input type="password" name="password2">
 							</input>
 						</div>
 						<div class="text_css">
