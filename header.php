@@ -57,6 +57,7 @@ $(document).ready(function(){
 		
 		<div id="header_search_block">
 			<form id="header_search_form" action="search.php" method="GET" >
+				<img id="search_icon" src="data/spotlight001.png"/>
 				<input id="header_search_input" type="text" name="keyword" value="請輸入影片名稱">
 				<div id="header_search_button">
 					SEARCH

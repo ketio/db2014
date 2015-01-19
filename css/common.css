@@ -97,7 +97,12 @@ html body{
 	position:absolute;
 	right:5px;
 	top:50px;
-	width:235px;
+	width:245px;
+}
+#search_icon{
+	margin-top:1px;
+	margin-right:2px;
+	height:24px;
 }
 #header_search_input {
 	position:absolute;
