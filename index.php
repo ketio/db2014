@@ -205,7 +205,7 @@
 								<td class="news_table_date"><div>2015/01/19</div></td>
 								<td class="news_table_content">
 									<div>
-										即時評價系統上線囉!!!
+										即時評價系統上線囉 !!!
 									</div>
 								</td>
 							</tr>
