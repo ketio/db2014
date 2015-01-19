@@ -84,8 +84,8 @@
 								"</div>"+
 								"<div class='videolist_item_name'>"+video.videoName+"</div>"+
 								"<div class='videolist_item_price'>"+
-									"<div class='videolist_item_rentPrice'>售 "+video.buyPrice+" 元</div>"+
-									"<div class='videolist_item_buyPrice'>租 "+video.rentPrice+" 元</div>"+
+									"<div class='videolist_item_rentPrice'>售&nbsp;NT."+video.buyPrice+" 元</div>"+
+									"<div class='videolist_item_buyPrice'>租&nbsp;NT."+video.rentPrice+" 元</div>"+
 								"</div>"+
 							"</div>"
 						);	
