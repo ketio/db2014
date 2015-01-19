@@ -51,6 +51,10 @@
 				},
 			});
 			
+			$(".dialogCancle").click(function(){
+				$(".transactionDialog").dialog("close");
+			});
+			
 			$("#buyConfirm").click(function(){
 				$(this).unbind("click");
 				$.ajax({
@@ -143,11 +147,11 @@
 									"</tr>"+
 									"<tr>"+
 										"<td>租借時間</td>"+
-										"<td>"+$(response).find("startTime").text()+"</td>"+
+										"<td>"+$(response).find("startTime").text().substr(0,10)+"</td>"+
 									"</tr>"+
 									"<tr>"+
 										"<td>到期時間</td>"+
-										"<td>"+$(response).find("endTime").text()+"</td>"+
+										"<td>"+$(response).find("endTime").text().substr(0,10)+"</td>"+
 									"</tr>"+
 									"<tr>"+
 										"<td>商品價錢</td>"+
@@ -252,25 +256,49 @@
 						$("#video_interface").append(
 							"<table id='"+video.videoID +"' class='video_table'>"+
 								"<tr>"+
-								"<td id='img_"+video.videoID+" class=''>"+
-									"<img class='video_picture' src='http://"+<?php echo '"'.$_SERVER['HTTP_HOST'].'"'; ?>+"/db2014/data/cover/"+video.videoID+".png'>"+
-								"</td>"+
-								"<td>"+
-									"<div class=''>"+video.videoName +"</div>"+
-									"<div class=''>"+video.videoType +"</div>"+
-									"<div class=''>"+video.rentPrice +"</div>"+
-									"<div class=''>"+video.buyPrice +"</div>"+
-									"<div class=''>"+video.publishDate +"</div>"+
-									"<div class=''>"+video.publisher +"</div>"+
-									"<div class=''>"+video.lang +"</div>"+	
-									"<div class=''>"+
-										"<div class='transactionButton' id='buyVideo'>購買</div>"+
-										"<div class='transactionButton' id='rentVideo'>租借</div>"+
-										"<div class='transactionButton' id='putVideo'>放入清單</div>"+
-									"</div>"+
-								"</td>"+
+									"<td id='img_"+video.videoID+" class=''>"+
+										"<img class='video_picture' src='http://"+<?php echo '"'.$_SERVER['HTTP_HOST'].'"'; ?>+"/db2014/data/cover/"+video.videoID+".png'>"+
+									"</td>"+
+									"<td>"+
+										"<table class='video_inner_table'>"+
+											"<tr class='video_inner_table_row'>"+
+												"<td class='video_inner_table_cell video_inner_table_title'>影片名稱</td>"+
+												"<td class='video_inner_table_cell'>"+video.videoName+"</td>"+
+											"</tr>"+
+											"<tr class='video_inner_table_row'>"+
+												"<td class='video_inner_table_cell video_inner_table_title'>影片名稱</td>"+
+												"<td class='video_inner_table_cell'>"+video.videoType+"</td>"+
+											"</tr>"+
+											"<tr class='video_inner_table_row'>"+
+												"<td class='video_inner_table_cell video_inner_table_title'>購買價格</td>"+
+												"<td class='video_inner_table_cell'>"+video.buyPrice+"</td>"+
+											"</tr>"+
+											"<tr class='video_inner_table_row'>"+
+												"<td class='video_inner_table_cell video_inner_table_title'>租借價格</td>"+
+												"<td class='video_inner_table_cell'>"+video.rentPrice+"</td>"+
+											"</tr>"+										
+											"<tr class='video_inner_table_row'>"+
+												"<td class='video_inner_table_cell video_inner_table_title'>出版</td>"+
+												"<td class='video_inner_table_cell'>"+video.publisher+"</td>"+
+											"</tr>"+
+											"<tr class='video_inner_table_row'>"+
+												"<td class='video_inner_table_cell video_inner_table_title'>出版日期</td>"+
+												"<td class='video_inner_table_cell'>"+video.publishDate.substr(0,10)+"</td>"+
+											"</tr>"+										
+											"<tr class='video_inner_table_row'>"+
+												"<td class='video_inner_table_cell video_inner_table_title'>影片語言</td>"+
+												"<td class='video_inner_table_cell'>"+video.lang+"</td>"+
+											"</tr>"+
+										"</table>"+
+										"<div class='transaction_row'>"+
+											"<div class='transactionButton' id='buyVideo'>購買</div>"+
+											"<div class='transactionButton' id='rentVideo'>租借</div>"+
+											"<div class='transactionButton' id='putVideo'>放入清單</div>"+
+										"</div>"+
+									"</td>"+
 								"</tr>"+
-							"</div>"
+							"</table>"+
+							"<div class='video_intro'>"+video.intro+"</div>"
 						);
 						
 						dialog_set();

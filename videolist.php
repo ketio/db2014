@@ -57,7 +57,7 @@
 				
 					$("#videolist_interface").empty();
 					//alert($(response).find("result").text());
-					//console.log(response);
+					console.log(response);
 					
 					$(response).find("video").each(function(){
 			
@@ -83,8 +83,10 @@
 									"</a>"+
 								"</div>"+
 								"<div class='videolist_item_name'>"+video.videoName+"</div>"+
-								"<div class='videolist_item_rentPrice'>售 NT. "+video.buyPrice+"</div>"+
-								"<div class='videolist_item_buyPrice'>租 NT. "+video.rentPrice+"</div>"+
+								"<div class='videolist_item_price'>"+
+									"<div class='videolist_item_rentPrice'>售 "+video.buyPrice+" 元</div>"+
+									"<div class='videolist_item_buyPrice'>租 "+video.rentPrice+" 元</div>"+
+								"</div>"+
 							"</div>"
 						);	
 						
@@ -101,6 +103,7 @@
 							$("#Rating_"+video.videoID).raty({
 								path:"system/js/raty/lib/images",
 								readOnly: true,
+								half: true,
 								score:video.rating,
 							});		
 						}

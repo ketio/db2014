@@ -67,7 +67,7 @@ $(document).ready(function(){
 	<div id="header2">
 		<div class="header2_item">|</div>
 		<div class="header2_item">
-			<a href="videolist.php?vediotypename=animax">動畫</a>
+			<a href="videolist.php?vediotypename=tvseries">影集</a>
 		</div>
 		<div class="header2_item">|</div>
 		<div class="header2_item">
@@ -75,7 +75,7 @@ $(document).ready(function(){
 		</div>
 		<div class="header2_item">|</div>
 		<div class="header2_item">
-			<a href="videolist.php?vediotypename=tvseries">影集</a>
+			<a href="videolist.php?vediotypename=animax">動畫</a>
 		</div>
 		<div class="header2_item">|</div>
 	</div>

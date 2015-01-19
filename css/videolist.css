@@ -8,13 +8,14 @@
 	
 	}
 .videolist_item{
-	margin:20px;
-	border:1px solid #aaaaaa;
+	//margin:40px;
+	margin-bottom:20px;
+	//border:1px solid #cccccc;
 	padding:10px;
 	//width:220px;
 	display:inline-block;
 	font-size:12pt;
-	box-shadow: 0px 0px 7px 0px #888888;
+	//box-shadow: 0px 0px 7px 0px #888888;
 }
 .videolist_item_image{
 	width:200px;
@@ -44,15 +45,24 @@
 	
 }
 .videolist_item_name{
+	margin-top:5px;
+	text-align:center;
 	font-size:13pt;
-	text-align:left;
+	text-align:center;
+	color:#555555;
 	
 }
+.videolist_item_price{
+	text-align:center;
+	color:#bbbbbb;
+	margin-top:10px;
+}
 .videolist_item_rentPrice{	
-	text-align:right;
+	display:inline-block;
+	margin-right:10px;
 
 }
 .videolist_item_buyPrice{
-	text-align:right;
-
+	display:inline-block;
+	margin-left:10px;
 }
