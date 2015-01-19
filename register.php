@@ -84,7 +84,7 @@
 				<div id="register_interface">
 					<form id="register_form" action="register_handle.php" method="post">
 						<div id="register_text">
-							&nbsp;&nbsp; REGISTER
+							REGISTER
 						</div>
 						<div class="text_css" style="margin-top:10px">
 							ACCOUNT | 會員帳號

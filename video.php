@@ -95,7 +95,7 @@
 										"<td>"+$(response).find("retainDeposit").text()+"</td>"+
 									"</tr>"+		
 								"</table>"+
-								"<div class='transactionConfirm'>確認</div>"
+								"<div class='transactionConfirm dialogConfirm'>確認</div>"
 							);
 							
 							$(".transactionConfirm").click(function(){
@@ -162,7 +162,7 @@
 										"<td>"+$(response).find("retainDeposit").text()+"</td>"+
 									"</tr>"+		
 								"</table>"+
-								"<div class='transactionConfirm'>確認</div>"
+								"<div class='transactionConfirm dialogConfirm'>確認</div>"
 							);
 							
 							$(".transactionConfirm").click(function(){
@@ -198,7 +198,7 @@
 						$("#putDialog").empty();
 						$("#putDialog").append(
 							"已成功將 "+$(response).find("videoName").text()+" 放入願望清單"+
-							"<div class='transactionConfirm'>確認</div>"
+							"<div class='transactionConfirm dialogConfirm'>確認</div>"
 						);
 							
 						$(".transactionConfirm").click(function(){
@@ -385,7 +385,7 @@
 								<td class="dialogTableCell dialogTableCellContent dialogPrice" id="buyDialogPrice" ></td>
 							</tr>
 							<tr>
-								<td><div id="buyConfirm" >確認</div></td>
+								<td><div id="buyConfirm" class="dialogConfirm" >確認</div></td>
 								<td><div class="dialogCancle" >取消</div></td>
 							</tr>
 						</table>
@@ -402,7 +402,7 @@
 								<td class="dialogTableCell dialogTableCellContent dialogPrice" id="rentDialogPrice" ></td>
 							</tr>
 							<tr>
-								<td><div id="rentConfirm" >確認</div></td>
+								<td><div id="rentConfirm" class="dialogConfirm" >確認</div></td>
 								<td><div class="dialogCancle" >取消</div></td>
 							</tr>
 						</table>

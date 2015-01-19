@@ -61,7 +61,7 @@
 					$Steps: 1                                       //[Optional] Steps to go for each navigation request, default value is 1
 				}
 			};
-			var jssor_slider1 = new $JssorSlider$("slider1_container", options);
+			var jssor_slider1 = new $JssorSlider$("slider1", options);
 
 			//responsive code begin
 			//you can remove responsive code if you don't want the slider scales while window resizes
@@ -96,48 +96,72 @@
 				include_once "header.php"; 
 			?>	
 			<div id="main_page">
-				<div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 600px; height: 360px; overflow: hidden; ">
-
-					<!-- Loading Screen -->
-					<div u="loading" style="position: absolute; top: 0px; left: 0px;">
-						<div style="filter: alpha(opacity=70); opacity:1;background:#15191f; position: absolute; display: block;
-							 top: 0px; left: 0px;width: 100%;height:100%;">
+				<div id="recommand_container">
+					<div id="recommand_image_container">
+						<div id="recommand_image_1" class="recommand_image">
 						</div>
-						<div style="position:absolute; display: block; top: 0px; left: 0px;width: 100%;height:100%; width:100%;text-align:center">
-							<img src="img/slider/loading.gif"/>
+						<div id="recommand_image_2" class="recommand_image recommand_image_mid">
 						</div>
-						
-						<!--<div style="position: absolute; display: block; background: url(img/slider/loading.gif) no-repeat center center;
-							top: 200px; left: 250px;width: 30%;height:30%;">
+						<div id="recommand_image_3" class="recommand_image recommand_image_mid">
 						</div>
-						-->
+						<div id="recommand_image_4" class="recommand_image recommand_image_mid">
+						</div>
+						<div id="recommand_image_5" class="recommand_image">
+						</div>
 					</div>
-					<!-- Slides Container -->
-					<div u="slides" style="position: absolute; left: 0px; top: 0px; width: 600px; height: 360px; overflow: hidden;">
-						<div>
-							<img u="image" src="data/slider/psycho.png" />
-						</div>
-						<div>
-							<img u="image" src="data/slider/about-time.png" />
-						</div>
-
-					</div>
-					<!-- bullet navigator container -->
-					<div u="navigator" class="jssorb05" style="position: absolute; bottom: 16px; right: 6px;">
-						<!-- bullet navigator item prototype -->
-						<div u="prototype" style="POSITION: absolute; WIDTH: 16px; HEIGHT: 16px;"></div>
-					</div>
-					<!-- Arrow Navigator Skin Begin -->
-					<!-- Arrow Left -->
-					<span u="arrowleft" class="jssora12l" style="width: 30px; height: 46px; top: 230px; left: 0px;">
-					</span>
-					<!-- Arrow Right -->
-					<span u="arrowright" class="jssora12r" style="width: 30px; height: 46px; top: 230px; right: 0px">
-					</span>
-					<!-- Arrow Navigator Skin End -->
-					<a style="display: none" href="http://www.jssor.com">javascript</a>
 				</div>
-				<!-- Jssor Slider End -->
+				<div id="slider_container" >
+					<div id="slider1" style="position: relative; top: 0px; left: 0px; width: 600px; height: 360px; overflow: hidden; ">
+
+						<!-- Loading Screen -->
+						<div u="loading" style="position: absolute; top: 0px; left: 0px;">
+							<div style="filter: alpha(opacity=70); opacity:1;background:#15191f; position: absolute; display: block;
+								 top: 0px; left: 0px;width: 100%;height:100%;">
+							</div>
+							<div style="position:absolute; display: block; top: 0px; left: 0px;width: 100%;height:100%; width:100%;text-align:center">
+								<img src="img/slider/loading.gif"/>
+							</div>
+							
+							<!--<div style="position: absolute; display: block; background: url(img/slider/loading.gif) no-repeat center center;
+								top: 200px; left: 250px;width: 30%;height:30%;">
+							</div>
+							-->
+						</div>
+						<!-- Slides Container -->
+						<div u="slides" style="position: absolute; left: 0px; top: 0px; width: 600px; height: 360px; overflow: hidden;">
+							<div>
+								<img u="image" src="data/slider/psycho.png" />
+							</div>
+							<div>
+								<img u="image" src="data/slider/about-time.png" />
+							</div>
+
+						</div>
+						<!-- bullet navigator container -->
+						<div u="navigator" class="jssorb05" style="position: absolute; bottom: 16px; right: 6px;">
+							<!-- bullet navigator item prototype -->
+							<div u="prototype" style="POSITION: absolute; WIDTH: 16px; HEIGHT: 16px;"></div>
+						</div>
+						<!-- Arrow Navigator Skin Begin -->
+						<!-- Arrow Left -->
+						<span u="arrowleft" class="jssora12l" style="width: 30px; height: 46px; top: 230px; left: 0px;">
+						</span>
+						<!-- Arrow Right -->
+						<span u="arrowright" class="jssora12r" style="width: 30px; height: 46px; top: 230px; right: 0px">
+						</span>
+						<!-- Arrow Navigator Skin End -->
+						<a style="display: none" href="http://www.jssor.com">javascript</a>
+					</div>
+					<!-- Jssor Slider End -->
+				</div>
+				<div id="news_interface">
+					<div id="news_title">
+						最新消息<span id="new_a ">New</span>
+					</div>
+					<div id="news_content">
+						慶祝網站成立，加入會員即享<span id="new_aaa">1000元</span>購物金！
+					</div>
+				</div>
 			</div>
 			<?php 
 				//include_once "footer.php"; 
