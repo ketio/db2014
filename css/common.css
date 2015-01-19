@@ -107,7 +107,7 @@ html body{
 #header_search_input {
 	position:absolute;
 	height: 20px;
-	width: 150px; 
+	width: 130px; 
 	border: 1px solid black;
 	display: inline-block;
 	color: #a2a2a2;
@@ -115,7 +115,7 @@ html body{
 }
 #header_search_button{
 	position:absolute;
-	left:160px;
+	left:170px;
 	display:inline-block;
 	cursor:pointer;
 	background:black;
