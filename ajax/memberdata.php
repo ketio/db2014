@@ -266,6 +266,9 @@
 		mysqli_stmt_bind_param($stmt, "ss",$newUserName,$userID);
 		mysqli_stmt_execute($stmt);
 		mysqli_stmt_close($stmt);
+		
+		
+		$_SESSION["user"]["userName"]=$newUserName;
 	}
 	
 	function getDepositSum($mysqli,$userID){

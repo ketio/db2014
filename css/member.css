@@ -18,6 +18,9 @@
 	line-height:35px;
 	padding-top:5px;
 }
+.member_option_item_choose{
+	font-weight:bold;
+}
 #member_interface{
 	width:100%;
 	text-align:center;

@@ -25,19 +25,19 @@
 	
 	<script>
 		var userID=<?php echo "'".$userID."'"; ?>;
+		
+		var optionValue="wanted";
+		
 		$(document).ready(function(){
-			get_list("wanted");		
-			$("#wanted_list_option").click(function(){
-				get_list("wanted");
-			});
-			$("#buy_list_option").click(function(){
-				get_list("buy");
-			});
-			$("#rent_list_option").click(function(){
-				get_list("rent");
-			});
-			$("#get_info_option").click(function(){
-				get_list("member");
+		
+			get_list(optionValue);		
+			$(".member_option_item[optionValue='"+optionValue+"']").addClass("member_option_item_choose");
+			
+			$(".member_option_item").click(function(){			
+				$(".member_option_item[optionValue='"+optionValue+"']").removeClass("member_option_item_choose");				
+				optionValue = $(this).attr("optionValue");
+				$(this).addClass("member_option_item_choose");
+				get_list(optionValue);
 			});
 		});
 		
@@ -393,16 +393,16 @@
 			?>	
 			<div id="member_page">
 				<div id="member_option_row">
-					<div id="wanted_list_option" class="member_option_item get_list_item">
+					<div id="wanted_list_option" class="member_option_item get_list_item" optionValue="wanted">
 						願望清單
 					</div>&nbsp;|
-					<div id="buy_list_option" class="member_option_item get_list_item">
+					<div id="buy_list_option" class="member_option_item get_list_item" optionValue="buy">
 						購買清單
 					</div>&nbsp;|
-					<div id="rent_list_option" class="member_option_item get_list_item">
+					<div id="rent_list_option" class="member_option_item get_list_item" optionValue="rent">
 						租借清單
 					</div>&nbsp;|
-					<div id="get_info_option" class="member_option_item get_info_item">
+					<div id="get_info_option" class="member_option_item get_info_item" optionValue="member">
 						會員資料
 					</div>
 				</div>
