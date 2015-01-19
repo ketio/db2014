@@ -115,12 +115,14 @@ html body{
 	cursor:pointer;
 	background:black;
 	color:white;
-	height:20px;
-	line-height:20px;
-	font-size:11pt;
+	height:18px;
+	line-height:18px;
+	font-size:10pt;
+	font-weight:bold;
 	padding:3px;
 	padding-left:5px;
 	padding-right:5px;
+	box-shadow:2px 2px 1px rgba(20%,20%,40%,0.5);
 }
 
 #logout{
