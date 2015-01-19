@@ -288,7 +288,7 @@
 									"<td>"+
 										"<table class='video_inner_table'>"+
 											"<tr class='video_inner_table_row'>"+
-												"<td class='video_inner_table_cell video_inner_table_title'>影片名稱</td>"+
+												"<td class='video_inner_table_title'>影片名稱</td>"+
 												"<td class='video_inner_table_cell'>"+video.videoName+"</td>"+
 											"</tr>"+
 											"<tr class='video_inner_table_row'>"+

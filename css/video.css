@@ -96,14 +96,15 @@
 .video_inner_table_title{
 	width:120px;
 	padding-right:20px;
+	line-height:25px;
+	font-size:19px;
 	text-align:right;
 	background-color:rgb(226, 226, 226);
 	font-family:微軟正黑體;
 }
 .video_inner_table_cell{
 	//width:300px;
-	line-height:23px;
-	height:23px;
+	line-height:25px;
 	padding-left:10px;
 	font-size:18px;
 	font-family:微軟正黑體;
